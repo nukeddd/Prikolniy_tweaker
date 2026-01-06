@@ -2,5 +2,6 @@
 <gresources>
   <gresource prefix="/com/github/jeremy-compost/tweaker">
     <file>window.ui</file>
+    <file alias="reclama.jpg">../../reclama.jpg</file>
   </gresource>
 </gresources>

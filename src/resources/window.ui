@@ -5,16 +5,14 @@
     <property name="title" translatable="yes">Tweaker</property>
     <property name="default-width">600</property>
     <property name="default-height">400</property>
+    <property name="titlebar">
+      <object class="GtkHeaderBar"/>
+    </property>
     <child>
       <object class="GtkBox">
         <property name="orientation">vertical</property>
         <child>
-          <object class="GtkHeaderBar"/>
-        </child>
-        <child>
-          <object class="GtkLabel">
-            <property name="label">Hello, World!</property>
-          </object>
+          <object class="GtkPicture" id="picture"/>
         </child>
       </object>
     </child>

@@ -1,7 +1,8 @@
-use gtk4::Button;
-use gtk4::ApplicationWindow;
 use gtk4::prelude::*;
 use gtk4::{gio, glib, Application};
+
+mod window;
+use window::TweakerWindow;
 
 const APP_ID: &str = "com.github.jeremy-compost.tweaker";
 
@@ -16,17 +17,6 @@ fn main() -> glib::ExitCode {
 }
 
 fn build_ui(app: &Application) {
-    let window = ApplicationWindow::new(app);
-
-    window.set_title(Some("Tweaker"));
-    window.set_default_size(350, 70);
-
-    let button = Button::with_label("Click me!");
-
-    button.connect_clicked(|_| {
-        eprintln!("Clicked!");
-    });
-
-    window.set_child(Some(&button));
+    let window = TweakerWindow::new(app);
     window.present();
 }
