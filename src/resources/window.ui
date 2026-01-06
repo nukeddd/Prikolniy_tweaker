@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="TweakerWindow" parent="GtkApplicationWindow">
+    <property name="title" translatable="yes">Tweaker</property>
+    <property name="default-width">600</property>
+    <property name="default-height">400</property>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkHeaderBar"/>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="label">Hello, World!</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>
