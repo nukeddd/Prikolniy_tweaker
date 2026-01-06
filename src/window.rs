@@ -5,6 +5,7 @@ use gtk::subclass::prelude::*;
 use gtk::prelude::*;
 use gtk::CompositeTemplate;
 use rand::prelude::*;
+use sysinfo::{System, SystemExt};
 
 mod imp {
     use super::*;
@@ -32,6 +33,8 @@ mod imp {
         pub balance_button: TemplateChild<gtk::Button>,
         #[template_child]
         pub save_mode_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub sys_info_label: TemplateChild<gtk::Label>,
     }
 
     impl Default for TweakerWindow {
@@ -46,6 +49,7 @@ mod imp {
                 performance_button: TemplateChild::default(),
                 balance_button: TemplateChild::default(),
                 save_mode_button: TemplateChild::default(),
+                sys_info_label: TemplateChild::default(),
             }
         }
     }
@@ -139,6 +143,20 @@ mod imp {
                 });
                 self.useless_buttons_box.append(&button);
             }
+
+            let mut sys = System::new_all();
+            sys.refresh_all();
+
+            let info = format!(
+                "System name: {}\nKernel version: {}\nOS version: {}\nTotal memory: {} KB\nUsed memory: {} KB",
+                sys.name().unwrap_or_default(),
+                sys.kernel_version().unwrap_or_default(),
+                sys.os_version().unwrap_or_default(),
+                sys.total_memory(),
+                sys.used_memory()
+            );
+
+            self.sys_info_label.set_text(&info);
         }
     }
 
