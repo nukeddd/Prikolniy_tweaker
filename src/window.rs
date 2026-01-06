@@ -43,6 +43,14 @@ mod imp {
         pub view_results_button: TemplateChild<gtk::Button>,
         #[template_child]
         pub benchmark_result_label: TemplateChild<gtk::Label>,
+        #[template_child]
+        pub ms_telemetry_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub bubunta_telemetry_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub rkn_telemetry_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub fortuna_telemetry_switch: TemplateChild<gtk::Switch>,
     }
 
     impl Default for TweakerWindow {
@@ -62,6 +70,10 @@ mod imp {
                 multi_test_button: TemplateChild::default(),
                 view_results_button: TemplateChild::default(),
                 benchmark_result_label: TemplateChild::default(),
+                ms_telemetry_switch: TemplateChild::default(),
+                bubunta_telemetry_switch: TemplateChild::default(),
+                rkn_telemetry_switch: TemplateChild::default(),
+                fortuna_telemetry_switch: TemplateChild::default(),
             }
         }
     }
@@ -163,8 +175,52 @@ mod imp {
                 }
             });
 
+            let ms_telemetry_window_weak = window.downgrade();
+            self.ms_telemetry_switch.connect_state_set(move |switch, state| {
+                if !state {
+                    if let Some(window) = ms_telemetry_window_weak.upgrade() {
+                        show_dialog(&window);
+                        switch.set_active(true);
+                    }
+                }
+                glib::Propagation::Stop
+            });
+
+            let bubunta_telemetry_window_weak = window.downgrade();
+            self.bubunta_telemetry_switch.connect_state_set(move |switch, state| {
+                if !state {
+                    if let Some(window) = bubunta_telemetry_window_weak.upgrade() {
+                        show_dialog(&window);
+                        switch.set_active(true);
+                    }
+                }
+                glib::Propagation::Stop
+            });
+
+            let rkn_telemetry_window_weak = window.downgrade();
+            self.rkn_telemetry_switch.connect_state_set(move |switch, state| {
+                if !state {
+                    if let Some(window) = rkn_telemetry_window_weak.upgrade() {
+                        show_dialog(&window);
+                        switch.set_active(true);
+                    }
+                }
+                glib::Propagation::Stop
+            });
+
+            let fortuna_telemetry_window_weak = window.downgrade();
+            self.fortuna_telemetry_switch.connect_state_set(move |switch, state| {
+                if !state {
+                    if let Some(window) = fortuna_telemetry_window_weak.upgrade() {
+                        show_dialog(&window);
+                        switch.set_active(true);
+                    }
+                }
+                glib::Propagation::Stop
+            });
+
             for i in 1..=50 {
-                let button = gtk::Button::with_label(&format!("Useless Button {}", i));
+                let button = gtk::Button::with_label(&format!("Кнопка что то делает {}", i));
                 button.set_margin_top(6);
                 button.set_margin_start(12);
                 button.set_margin_end(12);
