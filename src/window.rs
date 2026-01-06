@@ -26,6 +26,12 @@ mod imp {
         pub max_button: TemplateChild<gtk::Button>,
         #[template_child]
         pub useless_buttons_box: TemplateChild<gtk::Box>,
+        #[template_child]
+        pub performance_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub balance_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub save_mode_button: TemplateChild<gtk::Button>,
     }
 
     impl Default for TweakerWindow {
@@ -37,6 +43,9 @@ mod imp {
                 yasha_button: TemplateChild::default(),
                 max_button: TemplateChild::default(),
                 useless_buttons_box: TemplateChild::default(),
+                performance_button: TemplateChild::default(),
+                balance_button: TemplateChild::default(),
+                save_mode_button: TemplateChild::default(),
             }
         }
     }
@@ -92,8 +101,29 @@ mod imp {
                 }
             });
 
-            for i in 1..=100 {
-                let button = gtk::Button::with_label(&format!("Кнопка что то делает {}", i));
+            let performance_window_weak = window.downgrade();
+            self.performance_button.connect_clicked(move |_| {
+                if let Some(window) = performance_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let balance_window_weak = window.downgrade();
+            self.balance_button.connect_clicked(move |_| {
+                if let Some(window) = balance_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let save_mode_window_weak = window.downgrade();
+            self.save_mode_button.connect_clicked(move |_| {
+                if let Some(window) = save_mode_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            for i in 1..=50 {
+                let button = gtk::Button::with_label(&format!("Useless Button {}", i));
                 button.set_margin_top(6);
                 button.set_margin_start(12);
                 button.set_margin_end(12);
