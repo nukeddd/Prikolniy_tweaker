@@ -17,7 +17,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y -qq libgtk-4-dev build-essential pkg-config
+          sudo apt-get install -y -qq libgtk-4-dev libadwaita-1-dev build-essential pkg-config
       - name: Build
         run: cargo build --release
       - name: upload build
