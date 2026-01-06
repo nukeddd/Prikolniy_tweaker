@@ -7,6 +7,7 @@ use window::TweakerWindow;
 const APP_ID: &str = "com.github.jeremy-compost.tweaker";
 
 fn main() -> glib::ExitCode {
+    libadwaita::init().expect("libadwaita not initialized");
     gio::resources_register_include!("tweaker.gresource").expect("Failed to register resources.");
 
     let app = Application::builder().application_id(APP_ID).build();
