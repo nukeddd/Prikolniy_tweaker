@@ -5,7 +5,7 @@ use gtk::subclass::prelude::*;
 use gtk::prelude::*;
 use gtk::CompositeTemplate;
 use rand::prelude::*;
-use sysinfo::{System, SystemExt};
+use sysinfo::{System, SystemExt, CpuExt, ComponentExt};
 
 mod imp {
     use super::*;
@@ -35,6 +35,14 @@ mod imp {
         pub save_mode_button: TemplateChild<gtk::Button>,
         #[template_child]
         pub sys_info_label: TemplateChild<gtk::Label>,
+        #[template_child]
+        pub single_test_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub multi_test_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub view_results_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub benchmark_result_label: TemplateChild<gtk::Label>,
     }
 
     impl Default for TweakerWindow {
@@ -50,6 +58,10 @@ mod imp {
                 balance_button: TemplateChild::default(),
                 save_mode_button: TemplateChild::default(),
                 sys_info_label: TemplateChild::default(),
+                single_test_button: TemplateChild::default(),
+                multi_test_button: TemplateChild::default(),
+                view_results_button: TemplateChild::default(),
+                benchmark_result_label: TemplateChild::default(),
             }
         }
     }
@@ -126,6 +138,31 @@ mod imp {
                 }
             });
 
+            let single_test_window_weak = window.downgrade();
+            self.single_test_button.connect_clicked(move |_| {
+                if let Some(window) = single_test_window_weak.upgrade() {
+                    let mut rng = thread_rng();
+                    let score = rng.gen_range(300..1500);
+                    window.imp().benchmark_result_label.set_text(&format!("Your score: {}", score));
+                }
+            });
+
+            let multi_test_window_weak = window.downgrade();
+            self.multi_test_button.connect_clicked(move |_| {
+                if let Some(window) = multi_test_window_weak.upgrade() {
+                    let mut rng = thread_rng();
+                    let score = rng.gen_range(1000..30000);
+                    window.imp().benchmark_result_label.set_text(&format!("Your score: {}", score));
+                }
+            });
+
+            let view_results_window_weak = window.downgrade();
+            self.view_results_button.connect_clicked(move |_| {
+                if let Some(window) = view_results_window_weak.upgrade() {
+                    gtk::show_uri(Some(&window), "https://adderly.top/makubench", 0);
+                }
+            });
+
             for i in 1..=50 {
                 let button = gtk::Button::with_label(&format!("Useless Button {}", i));
                 button.set_margin_top(6);
@@ -147,13 +184,32 @@ mod imp {
             let mut sys = System::new_all();
             sys.refresh_all();
 
+            let cpu_info = format!("CPU: {} ({} cores)", sys.global_cpu_info().brand(), sys.cpus().len());
+
+            let gpu_info_str = sys.components().iter()
+                .filter(|c| {
+                    let label = c.label().to_lowercase();
+                    label.contains("gpu") || label.contains("vga") || label.contains("nvidia") || label.contains("amd") || label.contains("radeon") || label.contains("geforce")
+                })
+                .map(|c| format!("  - {}: {:.1}°C", c.label(), c.temperature()))
+                .collect::<Vec<_>>()
+                .join("\n");
+
+            let final_gpu_info = if gpu_info_str.is_empty() {
+                "GPU: Not found".to_string()
+            } else {
+                format!("GPU(s):\n{}", gpu_info_str)
+            };
+
             let info = format!(
-                "System name: {}\nKernel version: {}\nOS version: {}\nTotal memory: {} KB\nUsed memory: {} KB",
+                "System name: {}\nKernel version: {}\nOS version: {}\n\n{}\n\n{}\n\nTotal memory: {} GB\nUsed memory: {} MB",
                 sys.name().unwrap_or_default(),
                 sys.kernel_version().unwrap_or_default(),
                 sys.os_version().unwrap_or_default(),
-                sys.total_memory(),
-                sys.used_memory()
+                cpu_info,
+                final_gpu_info,
+                sys.total_memory() / (1024 * 1024),
+                sys.used_memory() / 1024
             );
 
             self.sys_info_label.set_text(&info);

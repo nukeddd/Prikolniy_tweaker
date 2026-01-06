@@ -142,6 +142,53 @@
                 </property>
               </object>
             </child>
+            <child>
+              <object class="GtkNotebookPage">
+                <property name="tab">
+                  <object class="GtkLabel">
+                    <property name="label" translatable="yes">Benchmark</property>
+                  </object>
+                </property>
+                <property name="child">
+                  <object class="GtkBox">
+                    <property name="orientation">vertical</property>
+                    <child>
+                      <object class="GtkButton" id="single_test_button">
+                        <property name="label" translatable="yes">single test</property>
+                        <property name="margin-top">12</property>
+                        <property name="margin-start">12</property>
+                        <property name="margin-end">12</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="multi_test_button">
+                        <property name="label" translatable="yes">multi test</property>
+                        <property name="margin-top">6</property>
+                        <property name="margin-start">12</property>
+                        <property name="margin-end">12</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="view_results_button">
+                        <property name="label" translatable="yes">view other resultats</property>
+                        <property name="margin-top">6</property>
+                        <property name="margin-bottom">12</property>
+                        <property name="margin-start">12</property>
+                        <property name="margin-end">12</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="benchmark_result_label">
+                        <property name="margin-top">12</property>
+                        <property name="margin-bottom">12</property>
+                        <property name="margin-start">12</property>
+                        <property name="margin-end">12</property>
+                      </object>
+                    </child>
+                  </object>
+                </property>
+              </object>
+            </child>
           </object>
         </child>
       </object>
