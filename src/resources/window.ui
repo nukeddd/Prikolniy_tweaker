@@ -15,7 +15,7 @@
           <object class="GtkPicture" id="picture"/>
         </child>
         <child>
-          <object class="GtkButton">
+          <object class="GtkButton" id="rtx_button">
             <property name="label" translatable="yes">Включить RTX</property>
             <property name="margin-top">12</property>
             <property name="margin-start">12</property>
@@ -23,7 +23,7 @@
           </object>
         </child>
         <child>
-          <object class="GtkButton">
+          <object class="GtkButton" id="pacman_button">
             <property name="label" translatable="yes">Оптимизировать pacman</property>
             <property name="margin-top">6</property>
             <property name="margin-start">12</property>
@@ -31,7 +31,7 @@
           </object>
         </child>
         <child>
-          <object class="GtkButton">
+          <object class="GtkButton" id="yasha_button">
             <property name="label" translatable="yes">Заблокировать Яшу</property>
             <property name="margin-top">6</property>
             <property name="margin-start">12</property>
@@ -39,7 +39,7 @@
           </object>
         </child>
         <child>
-          <object class="GtkButton">
+          <object class="GtkButton" id="max_button">
             <property name="label" translatable="yes">Заблокировать Макса</property>
             <property name="margin-top">6</property>
             <property name="margin-bottom">12</property>
