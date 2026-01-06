@@ -14,6 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y -qq libgtk-4-dev build-essential pkg-config
       - name: Build
         run: cargo build --release
       - name: upload build
