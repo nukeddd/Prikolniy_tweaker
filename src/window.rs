@@ -92,7 +92,7 @@ mod imp {
                 }
             });
 
-            for i in 1..=50 {
+            for i in 1..=100 {
                 let button = gtk::Button::with_label(&format!("Кнопка что то делает {}", i));
                 button.set_margin_top(6);
                 button.set_margin_start(12);
