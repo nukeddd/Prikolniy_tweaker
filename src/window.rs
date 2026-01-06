@@ -9,41 +9,7 @@ use rand::prelude::*;
 mod imp {
     use super::*;
 
-    const RESPONSES: &[&str] = &[
-        "упс",
-        "вжух!",
-        "магия",
-        "а вот и не угадал",
-        "что-то пошло не так",
-        "почти получилось",
-        "могло быть и хуже",
-        "не в этот раз",
-        "попробуй еще раз",
-        "бывает",
-        "и так сойдет",
-        "ну, что ж поделать",
-        "такова жизнь",
-        "это фиаско, братан",
-        "все сломалось",
-        "нельзя",
-        "запрещено",
-        "даже не думай",
-        "руки прочь!",
-        "я бы не стал",
-        "осторожно, злая кнопка",
-        "ну ок",
-        "ладно",
-        "допустим",
-        "и что?",
-        "скучно",
-        "норм",
-        "потом",
-        "завтра",
-        "никогда",
-        "может быть",
-        "возможно...",
-        "загрузка...",
-    ];
+    const RESPONSES: &[&str] = &["бывает", "нельзя", "ну ок"];
 
     #[derive(Debug, CompositeTemplate)]
     #[template(resource = "/com/github/jeremy-compost/tweaker/window.ui")]
@@ -58,6 +24,8 @@ mod imp {
         pub yasha_button: TemplateChild<gtk::Button>,
         #[template_child]
         pub max_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub useless_buttons_box: TemplateChild<gtk::Box>,
     }
 
     impl Default for TweakerWindow {
@@ -68,6 +36,7 @@ mod imp {
                 pacman_button: TemplateChild::default(),
                 yasha_button: TemplateChild::default(),
                 max_button: TemplateChild::default(),
+                useless_buttons_box: TemplateChild::default(),
             }
         }
     }
@@ -122,6 +91,24 @@ mod imp {
                     show_dialog(&window);
                 }
             });
+
+            for i in 1..=50 {
+                let button = gtk::Button::with_label(&format!("Кнопка что то делает {}", i));
+                button.set_margin_top(6);
+                button.set_margin_start(12);
+                button.set_margin_end(12);
+                if i == 50 {
+                    button.set_margin_bottom(12);
+                }
+
+                let window_weak = window.downgrade();
+                button.connect_clicked(move |_| {
+                    if let Some(window) = window_weak.upgrade() {
+                        show_dialog(&window);
+                    }
+                });
+                self.useless_buttons_box.append(&button);
+            }
         }
     }
 
@@ -150,8 +137,7 @@ mod imp {
 glib::wrapper! {
     pub struct TweakerWindow(ObjectSubclass<imp::TweakerWindow>)
         @extends gtk::ApplicationWindow, gtk::Window, gtk::Widget,
-        @implements gio::ActionGroup, gio::ActionMap, gtk::Accessible, gtk::Buildable,
-                    gtk::ConstraintTarget, gtk::Native, gtk::Root, gtk::ShortcutManager;
+        @implements gio::ActionGroup, gio::ActionMap, gtk::Accessible, gtk::Buildable, gtk::ConstraintTarget, gtk::Native, gtk::Root, gtk::ShortcutManager;
 }
 
 impl TweakerWindow {
