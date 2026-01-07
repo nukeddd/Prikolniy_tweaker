@@ -224,6 +224,42 @@ use super::*;
         pub start_install_button: TemplateChild<gtk::Button>,
         #[template_child]
         pub stop_install_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub quick_show_hidden_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub quick_show_extensions_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub quick_open_this_pc_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub quick_pause_updates_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub quick_show_this_pc_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub quick_remove_shortcut_suffix_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub quick_hide_task_view_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub quick_remove_ads_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub quick_disable_bing_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub quick_fix_duplicates_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub quick_disable_bitlocker_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub quick_disable_sticky_keys_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub quick_enable_clipboard_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub quick_remove_context_delay_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub quick_set_chkdsk_timeout_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub quick_install_directplay_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub quick_install_dotnet_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub start_quick_setup_button: TemplateChild<gtk::Button>,
     }
 
     impl Default for TweakerWindow {
@@ -333,6 +369,24 @@ use super::*;
                 skip_app_button: TemplateChild::default(),
                 start_install_button: TemplateChild::default(),
                 stop_install_button: TemplateChild::default(),
+                quick_show_hidden_switch: TemplateChild::default(),
+                quick_show_extensions_switch: TemplateChild::default(),
+                quick_open_this_pc_switch: TemplateChild::default(),
+                quick_pause_updates_switch: TemplateChild::default(),
+                quick_show_this_pc_switch: TemplateChild::default(),
+                quick_remove_shortcut_suffix_switch: TemplateChild::default(),
+                quick_hide_task_view_switch: TemplateChild::default(),
+                quick_remove_ads_switch: TemplateChild::default(),
+                quick_disable_bing_switch: TemplateChild::default(),
+                quick_fix_duplicates_switch: TemplateChild::default(),
+                quick_disable_bitlocker_switch: TemplateChild::default(),
+                quick_disable_sticky_keys_switch: TemplateChild::default(),
+                quick_enable_clipboard_switch: TemplateChild::default(),
+                quick_remove_context_delay_switch: TemplateChild::default(),
+                quick_set_chkdsk_timeout_switch: TemplateChild::default(),
+                quick_install_directplay_switch: TemplateChild::default(),
+                quick_install_dotnet_switch: TemplateChild::default(),
+                start_quick_setup_button: TemplateChild::default(),
             }
         }
     }
@@ -780,6 +834,13 @@ use super::*;
             let stop_install_window_weak = window.downgrade();
             self.stop_install_button.connect_clicked(move |_| {
                 if let Some(window) = stop_install_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let start_quick_setup_window_weak = window.downgrade();
+            self.start_quick_setup_button.connect_clicked(move |_| {
+                if let Some(window) = start_quick_setup_window_weak.upgrade() {
                     show_dialog(&window);
                 }
             });

@@ -767,7 +767,90 @@
                     <property name="name">quick_setup</property>
                     <property name="title">Быстрая настройка</property>
                     <property name="child">
-                      <object class="GtkLabel"><property name="label">Готовые конфигурации</property></object>
+                      <object class="GtkScrolledWindow">
+                        <property name="child">
+                          <object class="GtkBox">
+                            <property name="orientation">vertical</property>
+                            <property name="margin-top">12</property>
+                            <property name="margin-bottom">12</property>
+                            <property name="margin-start">12</property>
+                            <property name="margin-end">12</property>
+                            <property name="spacing">6</property>
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="label" translatable="yes">Quick Windows Setup</property>
+                                <property name="xalign">0</property>
+                                <attributes><attribute name="weight" value="bold"/><attribute name="scale" value="2.0"/></attributes>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="label" translatable="yes">Use Checkboxes To Select The Settings To Be Applied.</property>
+                                <property name="xalign">0</property>
+                                <attributes><attribute name="scale" value="1.2"/></attributes>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><property name="margin-top">12</property><child><object class="GtkLabel"><property name="label">Show Hidden Files and Folders</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_show_hidden_switch"><property name="active">true</property></object></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Show File Extensions</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_show_extensions_switch"><property name="active">true</property></object></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Open 'This PC' Page In Explorer Instead Of 'Home'</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_open_this_pc_switch"><property name="active">true</property></object></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Pause Windows Update Service</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_pause_updates_switch"><property name="active">true</property></object></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Show 'This PC' On Desktop</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_show_this_pc_switch"><property name="active">true</property></object></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Remove The '-Shortcut' Ending From New Shortcuts</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_remove_shortcut_suffix_switch"><property name="active">true</property></object></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Hide The Task View And Widgets Button</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_hide_task_view_switch"><property name="active">true</property></object></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Remove Ads In Start Menu And Taskbar Search</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_remove_ads_switch"><property name="active">true</property></object></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Disable Online Search In Start Via Bing</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_disable_bing_switch"><property name="active">true</property></object></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Fix Disk Duplication In Explorer</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_fix_duplicates_switch"><property name="active">true</property></object></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Disable Automatic BitLocker Encryption</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_disable_bitlocker_switch"><property name="active">true</property></object></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Disable Sticky Keys</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_disable_sticky_keys_switch"><property name="active">true</property></object></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Enable Clipboard</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_enable_clipboard_switch"><property name="active">true</property></object></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Remove Context Menu Delay</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_remove_context_delay_switch"><property name="active">true</property></object></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Set Chkdsk Timeout to 1 Minute</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_set_chkdsk_timeout_switch"><property name="active">true</property></object></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Install DirectPlay</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_install_directplay_switch"><property name="active">true</property></object></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Install .NET Framework 2.0, 3.0, 3.5</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_install_dotnet_switch"><property name="active">true</property></object></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkButton" id="start_quick_setup_button">
+                                <property name="label">Start Quick Setup</property>
+                                <property name="halign">end</property>
+                                <property name="margin-top">12</property>
+                              </object>
+                            </child>
+                          </object>
+                        </property>
+                      </object>
                     </property>
                   </object>
                 </child>
