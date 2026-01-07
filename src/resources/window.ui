@@ -272,7 +272,80 @@
                     <property name="name">uwp</property>
                     <property name="title">Удаление UWP</property>
                     <property name="child">
-                      <object class="GtkLabel"><property name="label">Удаление приложений Windows</property></object>
+                      <object class="GtkScrolledWindow">
+                        <property name="child">
+                          <object class="GtkBox">
+                            <property name="orientation">vertical</property>
+                            <property name="margin-top">12</property>
+                            <property name="margin-bottom">12</property>
+                            <property name="margin-start">12</property>
+                            <property name="margin-end">12</property>
+                            <property name="spacing">6</property>
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="label" translatable="yes">Remove UWP Apps</property>
+                                <property name="xalign">0</property>
+                                <attributes><attribute name="weight" value="bold"/><attribute name="scale" value="2.0"/></attributes>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="label" translatable="yes">Select The UWP Apps You Want to Remove</property>
+                                <property name="xalign">0</property>
+                                <attributes><attribute name="weight" value="bold"/><attribute name="scale" value="1.5"/></attributes>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="label" translatable="yes">Please note: This apps will not be removed for all users.</property>
+                                <property name="xalign">0</property>
+                                <attributes><attribute name="scale" value="1.2"/></attributes>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkGrid" id="uwp_grid">
+                                <property name="margin-top">12</property>
+                                <property name="column-spacing">24</property>
+                                <property name="row-spacing">6</property>
+                                <!-- Dynamically populated -->
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkGrid">
+                                <property name="margin-top">12</property>
+                                <child>
+                                  <object class="GtkLabel" id="uwp_status_label">
+                                    <property name="label">Checking installed UWP apps...</property>
+                                    <property name="hexpand">true</property>
+                                    <property name="xalign">0</property>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkComboBoxText" id="uwp_view_combo">
+                                    <property name="visible">false</property>
+                                    <items>
+                                      <item translatable="yes" id="bloatware">Only Bloatware</item>
+                                      <item translatable="yes" id="popular">Show Popular Apps</item>
+                                      <item translatable="yes" id="necessary">Show Necessary Apps</item>
+                                    </items>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="uwp_remove_button">
+                                    <property name="label">Start Removing UWP</property>
+                                    <property name="visible">false</property>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkProgressBar" id="uwp_progress_bar">
+                                <property name="margin-top">6</property>
+                              </object>
+                            </child>
+                          </object>
+                        </property>
+                      </object>
                     </property>
                   </object>
                 </child>
@@ -281,7 +354,106 @@
                     <property name="name">personalization</property>
                     <property name="title">Персонализация</property>
                     <property name="child">
-                      <object class="GtkLabel"><property name="label">Настройка внешнего вида</property></object>
+                      <object class="GtkScrolledWindow">
+                        <property name="child">
+                          <object class="GtkBox">
+                            <property name="orientation">vertical</property>
+                            <property name="margin-top">12</property>
+                            <property name="margin-bottom">12</property>
+                            <property name="margin-start">12</property>
+                            <property name="margin-end">12</property>
+                            <property name="spacing">6</property>
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="label" translatable="yes">Personalization</property>
+                                <property name="xalign">0</property>
+                                <attributes><attribute name="weight" value="bold"/><attribute name="scale" value="2.0"/></attributes>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="label" translatable="yes">Default Name for New Files and New Folders</property>
+                                <property name="xalign">0</property>
+                                <attributes><attribute name="scale" value="1.2"/></attributes>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkBox">
+                                <property name="spacing">6</property>
+                                <child>
+                                  <object class="GtkEntry" id="new_name_entry">
+                                    <property name="placeholder-text">New File</property>
+                                    <property name="hexpand">true</property>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="apply_new_name_button"><property name="label">Apply</property></object>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="standard_new_name_button"><property name="label">Standard</property></object>
+                                </child>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="label" translatable="yes">Change Selection Colors</property>
+                                <property name="xalign">0</property>
+                                <property name="margin-top">12</property>
+                                <attributes><attribute name="scale" value="1.2"/></attributes>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkBox">
+                                <property name="spacing">6</property>
+                                <child>
+                                  <object class="GtkComboBoxText" id="color_combo">
+                                    <items>
+                                      <item translatable="yes" id="std">Standard</item>
+                                      <item translatable="yes" id="cyan">Cyan</item>
+                                      <item translatable="yes" id="purple">Purple</item>
+                                      <item translatable="yes" id="green">Green</item>
+                                      <item translatable="yes" id="orange">Orange</item>
+                                      <item translatable="yes" id="red">Red</item>
+                                      <item translatable="yes" id="blue">Blue</item>
+                                      <item translatable="yes" id="black">Black</item>
+                                    </items>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="apply_color_button"><property name="label">Apply</property></object>
+                                </child>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkSeparator"><property name="margin-top">12</property><property name="margin-bottom">6</property></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Enable End Task in Taskbar</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="enable_end_task_switch"/></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Small Window Buttons</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="small_window_buttons_switch"/></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Disable Blur on The Lock Screen</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_lock_screen_blur_switch"/></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Disable Transparency</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_transparency_switch"/></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Enable Dark theme</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="enable_dark_theme_switch"/></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Verbose</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="verbose_switch"/></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Disable Windows Logo in Bootloader</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_boot_logo_switch"/></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Disable Animation in Bootloader</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_boot_animation_switch"/></child></object>
+                            </child>
+                          </object>
+                        </property>
+                      </object>
                     </property>
                   </object>
                 </child>

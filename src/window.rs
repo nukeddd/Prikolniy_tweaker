@@ -118,6 +118,40 @@ use super::*;
         pub apply_compactos_switch: TemplateChild<gtk::Switch>,
         #[template_child]
         pub disable_bitlocker_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub uwp_status_label: TemplateChild<gtk::Label>,
+        #[template_child]
+        pub uwp_view_combo: TemplateChild<gtk::ComboBoxText>,
+        #[template_child]
+        pub uwp_remove_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub uwp_progress_bar: TemplateChild<gtk::ProgressBar>,
+        #[template_child]
+        pub new_name_entry: TemplateChild<gtk::Entry>,
+        #[template_child]
+        pub apply_new_name_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub standard_new_name_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub color_combo: TemplateChild<gtk::ComboBoxText>,
+        #[template_child]
+        pub apply_color_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub enable_end_task_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub small_window_buttons_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub disable_lock_screen_blur_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub disable_transparency_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub enable_dark_theme_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub verbose_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub disable_boot_logo_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub disable_boot_animation_switch: TemplateChild<gtk::Switch>,
     }
 
     impl Default for TweakerWindow {
@@ -174,6 +208,23 @@ use super::*;
                 set_chkdsk_timeout_switch: TemplateChild::default(),
                 apply_compactos_switch: TemplateChild::default(),
                 disable_bitlocker_switch: TemplateChild::default(),
+                uwp_status_label: TemplateChild::default(),
+                uwp_view_combo: TemplateChild::default(),
+                uwp_remove_button: TemplateChild::default(),
+                uwp_progress_bar: TemplateChild::default(),
+                new_name_entry: TemplateChild::default(),
+                apply_new_name_button: TemplateChild::default(),
+                standard_new_name_button: TemplateChild::default(),
+                color_combo: TemplateChild::default(),
+                apply_color_button: TemplateChild::default(),
+                enable_end_task_switch: TemplateChild::default(),
+                small_window_buttons_switch: TemplateChild::default(),
+                disable_lock_screen_blur_switch: TemplateChild::default(),
+                disable_transparency_switch: TemplateChild::default(),
+                enable_dark_theme_switch: TemplateChild::default(),
+                verbose_switch: TemplateChild::default(),
+                disable_boot_logo_switch: TemplateChild::default(),
+                disable_boot_animation_switch: TemplateChild::default(),
             }
         }
     }
@@ -320,6 +371,91 @@ use super::*;
                         show_dialog(&window);
                         switch.set_active(true);
                     }
+                }
+                glib::Propagation::Stop
+            });
+
+            let apply_new_name_window_weak = window.downgrade();
+            self.apply_new_name_button.connect_clicked(move |_| {
+                if let Some(window) = apply_new_name_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let standard_new_name_window_weak = window.downgrade();
+            self.standard_new_name_button.connect_clicked(move |_| {
+                if let Some(window) = standard_new_name_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let apply_color_window_weak = window.downgrade();
+            self.apply_color_button.connect_clicked(move |_| {
+                if let Some(window) = apply_color_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let enable_end_task_window_weak = window.downgrade();
+            self.enable_end_task_switch.connect_state_set(move |_, _| {
+                if let Some(window) = enable_end_task_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let small_window_buttons_window_weak = window.downgrade();
+            self.small_window_buttons_switch.connect_state_set(move |_, _| {
+                if let Some(window) = small_window_buttons_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let disable_lock_screen_blur_window_weak = window.downgrade();
+            self.disable_lock_screen_blur_switch.connect_state_set(move |_, _| {
+                if let Some(window) = disable_lock_screen_blur_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let disable_transparency_window_weak = window.downgrade();
+            self.disable_transparency_switch.connect_state_set(move |_, _| {
+                if let Some(window) = disable_transparency_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let enable_dark_theme_window_weak = window.downgrade();
+            self.enable_dark_theme_switch.connect_state_set(move |_, _| {
+                if let Some(window) = enable_dark_theme_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let verbose_window_weak = window.downgrade();
+            self.verbose_switch.connect_state_set(move |_, _| {
+                if let Some(window) = verbose_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let disable_boot_logo_window_weak = window.downgrade();
+            self.disable_boot_logo_switch.connect_state_set(move |_, _| {
+                if let Some(window) = disable_boot_logo_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let disable_boot_animation_window_weak = window.downgrade();
+            self.disable_boot_animation_switch.connect_state_set(move |_, _| {
+                if let Some(window) = disable_boot_animation_window_weak.upgrade() {
+                    show_dialog(&window);
                 }
                 glib::Propagation::Stop
             });
