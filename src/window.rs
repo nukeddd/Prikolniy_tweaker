@@ -962,9 +962,13 @@ mod imp {
             self.uwp_scan_button.connect_clicked(move |_| {
                 if let Some(window) = uwp_scan_button_weak.upgrade() {
                     let progress_bar = window.imp().uwp_progress_bar.clone();
+                    let uwp_grid = window.imp().uwp_grid.clone();
+                    let uwp_view_combo = window.imp().uwp_view_combo.clone();
+                    let uwp_remove_button = window.imp().uwp_remove_button.clone();
+
                     progress_bar.set_visible(true);
                     let counter = Rc::new(Cell::new(0.0));
-                    glib::timeout_add_local(Duration::from_millis(100), move || {
+                    glib::timeout_add_local(Duration::from_millis(1000), move || {
                         let val = counter.get() + 0.01;
                         counter.set(val);
                         progress_bar.set_fraction(val);
@@ -973,6 +977,9 @@ mod imp {
                         } else {
                             progress_bar.set_visible(false);
                             progress_bar.set_fraction(0.0);
+                            uwp_grid.set_visible(true);
+                            uwp_view_combo.set_visible(true);
+                            uwp_remove_button.set_visible(true);
                             glib::ControlFlow::Break
                         }
                     });
