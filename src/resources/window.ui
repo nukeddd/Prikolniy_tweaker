@@ -27,6 +27,117 @@
               <object class="GtkStack" id="stack">
                 <property name="hexpand">true</property>
                 <property name="vexpand">true</property>
+                <!-- Old Pages -->
+                <child>
+                  <object class="GtkStackPage">
+                    <property name="name">tweaks</property>
+                    <property name="title">Tweaks</property>
+                    <property name="child">
+                      <object class="GtkBox">
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkButton" id="rtx_button"><property name="label" translatable="yes">Включить RTX</property><property name="margin-top">12</property><property name="margin-start">12</property><property name="margin-end">12</property></object>
+                        </child>
+                        <child>
+                          <object class="GtkButton" id="pacman_button"><property name="label" translatable="yes">Оптимизировать pacman</property><property name="margin-top">6</property><property name="margin-start">12</property><property name="margin-end">12</property></object>
+                        </child>
+                        <child>
+                          <object class="GtkButton" id="yasha_button"><property name="label" translatable="yes">Заблокировать Яшу</property><property name="margin-top">6</property><property name="margin-start">12</property><property name="margin-end">12</property></object>
+                        </child>
+                        <child>
+                          <object class="GtkButton" id="max_button"><property name="label" translatable="yes">Заблокировать Макса</property><property name="margin-top">6</property><property name="margin-start">12</property><property name="margin-end">12</property></object>
+                        </child>
+                        <child>
+                          <object class="GtkButton" id="maku_tweaker_button"><property name="label" translatable="yes">заблокировать маку твикер</property><property name="margin-top">6</property><property name="margin-bottom">12</property><property name="margin-start">12</property><property name="margin-end">12</property></object>
+                        </child>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkStackPage">
+                    <property name="name">more_tweaks</property>
+                    <property name="title">More Tweaks</property>
+                    <property name="child">
+                      <object class="GtkScrolledWindow"><property name="child"><object class="GtkBox" id="useless_buttons_box"><property name="orientation">vertical</property></object></property></object>
+                    </property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkStackPage">
+                    <property name="name">performance</property>
+                    <property name="title">Производительность</property>
+                    <property name="child">
+                      <object class="GtkBox">
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkButton" id="performance_button"><property name="label" translatable="yes">производительность</property><property name="margin-top">12</property><property name="margin-start">12</property><property name="margin-end">12</property></object>
+                        </child>
+                        <child>
+                          <object class="GtkButton" id="balance_button"><property name="label" translatable="yes">баланс</property><property name="margin-top">6</property><property name="margin-start">12</property><property name="margin-end">12</property></object>
+                        </child>
+                        <child>
+                          <object class="GtkButton" id="save_mode_button"><property name="label" translatable="yes">save mode</property><property name="margin-top">6</property><property name="margin-bottom">12</property><property name="margin-start">12</property><property name="margin-end">12</property></object>
+                        </child>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkStackPage">
+                    <property name="name">sys_info</property>
+                    <property name="title">Sys Info</property>
+                    <property name="child">
+                      <object class="GtkScrolledWindow"><property name="child"><object class="GtkLabel" id="sys_info_label"><property name="margin-top">12</property><property name="margin-bottom">12</property><property name="margin-start">12</property><property name="margin-end">12</property></object></property></object>
+                    </property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkStackPage">
+                    <property name="name">telemetry</property>
+                    <property name="title">Телеметрия</property>
+                    <property name="child">
+                      <object class="GtkBox">
+                        <property name="orientation">vertical</property><property name="margin-top">12</property><property name="margin-bottom">12</property><property name="margin-start">12</property><property name="margin-end">12</property><property name="spacing">6</property>
+                        <child>
+                          <object class="GtkBox"><property name="orientation">horizontal</property><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">телеметрия microsoft</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="ms_telemetry_switch"><property name="active">true</property></object></child></object>
+                        </child>
+                        <child>
+                          <object class="GtkBox"><property name="orientation">horizontal</property><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">телеметрия bubunta inc</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="bubunta_telemetry_switch"><property name="active">true</property></object></child></object>
+                        </child>
+                        <child>
+                          <object class="GtkBox"><property name="orientation">horizontal</property><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">телеметрия РКН</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="rkn_telemetry_switch"><property name="active">true</property></object></child></object>
+                        </child>
+                        <child>
+                          <object class="GtkBox"><property name="orientation">horizontal</property><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">телеметрия Фортуна ТЕЛЕКОМ</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="fortuna_telemetry_switch"><property name="active">true</property></object></child></object>
+                        </child>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkStackPage">
+                    <property name="name">benchmark</property>
+                    <property name="title">Benchmark</property>
+                    <property name="child">
+                      <object class="GtkBox">
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkButton" id="single_test_button"><property name="label" translatable="yes">single test</property><property name="margin-top">12</property><property name="margin-start">12</property><property name="margin-end">12</property></object>
+                        </child>
+                        <child>
+                          <object class="GtkButton" id="multi_test_button"><property name="label" translatable="yes">multi test</property><property name="margin-top">6</property><property name="margin-start">12</property><property name="margin-end">12</property></object>
+                        </child>
+                        <child>
+                          <object class="GtkButton" id="view_results_button"><property name="label" translatable="yes">view other resultats</property><property name="margin-top">6</property><property name="margin-bottom">12</property><property name="margin-start">12</property><property name="margin-end">12</property></object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="benchmark_result_label"><property name="margin-top">12</property><property name="margin-bottom">12</property><property name="margin-start">12</property><property name="margin-end">12</property></object>
+                        </child>
+                      </object>
+                    </property>
+                  </object>
+                </child>
                 <!-- New Pages -->
                 <child>
                   <object class="GtkStackPage">
@@ -142,118 +253,6 @@
                     <property name="title">Информация о ПК</property>
                     <property name="child">
                       <object class="GtkLabel"><property name="label">Системная информация</property></object>
-                    </property>
-                  </object>
-                </child>
-
-                <!-- Old Pages -->
-                <child>
-                  <object class="GtkStackPage">
-                    <property name="name">tweaks</property>
-                    <property name="title">Tweaks</property>
-                    <property name="child">
-                      <object class="GtkBox">
-                        <property name="orientation">vertical</property>
-                        <child>
-                          <object class="GtkButton" id="rtx_button"><property name="label" translatable="yes">Включить RTX</property><property name="margin-top">12</property><property name="margin-start">12</property><property name="margin-end">12</property></object>
-                        </child>
-                        <child>
-                          <object class="GtkButton" id="pacman_button"><property name="label" translatable="yes">Оптимизировать pacman</property><property name="margin-top">6</property><property name="margin-start">12</property><property name="margin-end">12</property></object>
-                        </child>
-                        <child>
-                          <object class="GtkButton" id="yasha_button"><property name="label" translatable="yes">Заблокировать Яшу</property><property name="margin-top">6</property><property name="margin-start">12</property><property name="margin-end">12</property></object>
-                        </child>
-                        <child>
-                          <object class="GtkButton" id="max_button"><property name="label" translatable="yes">Заблокировать Макса</property><property name="margin-top">6</property><property name="margin-start">12</property><property name="margin-end">12</property></object>
-                        </child>
-                        <child>
-                          <object class="GtkButton" id="maku_tweaker_button"><property name="label" translatable="yes">заблокировать маку твикер</property><property name="margin-top">6</property><property name="margin-bottom">12</property><property name="margin-start">12</property><property name="margin-end">12</property></object>
-                        </child>
-                      </object>
-                    </property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkStackPage">
-                    <property name="name">more_tweaks</property>
-                    <property name="title">More Tweaks</property>
-                    <property name="child">
-                      <object class="GtkScrolledWindow"><property name="child"><object class="GtkBox" id="useless_buttons_box"><property name="orientation">vertical</property></object></property></object>
-                    </property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkStackPage">
-                    <property name="name">performance</property>
-                    <property name="title">Производительность</property>
-                    <property name="child">
-                      <object class="GtkBox">
-                        <property name="orientation">vertical</property>
-                        <child>
-                          <object class="GtkButton" id="performance_button"><property name="label" translatable="yes">производительность</property><property name="margin-top">12</property><property name="margin-start">12</property><property name="margin-end">12</property></object>
-                        </child>
-                        <child>
-                          <object class="GtkButton" id="balance_button"><property name="label" translatable="yes">баланс</property><property name="margin-top">6</property><property name="margin-start">12</property><property name="margin-end">12</property></object>
-                        </child>
-                        <child>
-                          <object class="GtkButton" id="save_mode_button"><property name="label" translatable="yes">save mode</property><property name="margin-top">6</property><property name="margin-bottom">12</property><property name="margin-start">12</property><property name="margin-end">12</property></object>
-                        </child>
-                      </object>
-                    </property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkStackPage">
-                    <property name="name">sys_info</property>
-                    <property name="title">Sys Info</property>
-                    <property name="child">
-                      <object class="GtkScrolledWindow"><property name="child"><object class="GtkLabel" id="sys_info_label"><property name="margin-top">12</property><property name="margin-bottom">12</property><property name="margin-start">12</property><property name="margin-end">12</property></object></property></object>
-                    </property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkStackPage">
-                    <property name="name">telemetry</property>
-                    <property name="title">Телеметрия</property>
-                    <property name="child">
-                      <object class="GtkBox">
-                        <property name="orientation">vertical</property><property name="margin-top">12</property><property name="margin-bottom">12</property><property name="margin-start">12</property><property name="margin-end">12</property><property name="spacing">6</property>
-                        <child>
-                          <object class="GtkBox"><property name="orientation">horizontal</property><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">телеметрия microsoft</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="ms_telemetry_switch"><property name="active">true</property></object></child></object>
-                        </child>
-                        <child>
-                          <object class="GtkBox"><property name="orientation">horizontal</property><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">телеметрия bubunta inc</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="bubunta_telemetry_switch"><property name="active">true</property></object></child></object>
-                        </child>
-                        <child>
-                          <object class="GtkBox"><property name="orientation">horizontal</property><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">телеметрия РКН</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="rkn_telemetry_switch"><property name="active">true</property></object></child></object>
-                        </child>
-                        <child>
-                          <object class="GtkBox"><property name="orientation">horizontal</property><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">телеметрия Фортуна ТЕЛЕКОМ</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="fortuna_telemetry_switch"><property name="active">true</property></object></child></object>
-                        </child>
-                      </object>
-                    </property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkStackPage">
-                    <property name="name">benchmark</property>
-                    <property name="title">Benchmark</property>
-                    <property name="child">
-                      <object class="GtkBox">
-                        <property name="orientation">vertical</property>
-                        <child>
-                          <object class="GtkButton" id="single_test_button"><property name="label" translatable="yes">single test</property><property name="margin-top">12</property><property name="margin-start">12</property><property name="margin-end">12</property></object>
-                        </child>
-                        <child>
-                          <object class="GtkButton" id="multi_test_button"><property name="label" translatable="yes">multi test</property><property name="margin-top">6</property><property name="margin-start">12</property><property name="margin-end">12</property></object>
-                        </child>
-                        <child>
-                          <object class="GtkButton" id="view_results_button"><property name="label" translatable="yes">view other resultats</property><property name="margin-top">6</property><property name="margin-bottom">12</property><property name="margin-start">12</property><property name="margin-end">12</property></object>
-                        </child>
-                        <child>
-                          <object class="GtkLabel" id="benchmark_result_label"><property name="margin-top">12</property><property name="margin-bottom">12</property><property name="margin-start">12</property><property name="margin-end">12</property></object>
-                        </child>
-                      </object>
                     </property>
                   </object>
                 </child>
