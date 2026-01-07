@@ -31,7 +31,7 @@
                 <child>
                   <object class="GtkStackPage">
                     <property name="name">tweaks</property>
-                    <property name="title">Tweaks</property>
+                    <property name="title">Твики</property>
                     <property name="child">
                       <object class="GtkBox">
                         <property name="orientation">vertical</property>
@@ -48,7 +48,19 @@
                           <object class="GtkButton" id="max_button"><property name="label" translatable="yes">Заблокировать Макса</property><property name="margin-top">6</property><property name="margin-start">12</property><property name="margin-end">12</property></object>
                         </child>
                         <child>
-                          <object class="GtkButton" id="maku_tweaker_button"><property name="label" translatable="yes">заблокировать маку твикер</property><property name="margin-top">6</property><property name="margin-bottom">12</property><property name="margin-start">12</property><property name="margin-end">12</property></object>
+                          <object class="GtkButton" id="maku_tweaker_button"><property name="label" translatable="yes">заблокировать маку твикер</property><property name="margin-top">6</property><property name="margin-start">12</property><property name="margin-end">12</property></object>
+                        </child>
+                        <child>
+                          <object class="GtkButton" id="win12_button"><property name="label" translatable="yes">Активировать Windows 12</property><property name="margin-top">6</property><property name="margin-start">12</property><property name="margin-end">12</property></object>
+                        </child>
+                        <child>
+                          <object class="GtkButton" id="ram_button"><property name="label" translatable="yes">Скачать больше оперативной памяти</property><property name="margin-top">6</property><property name="margin-start">12</property><property name="margin-end">12</property></object>
+                        </child>
+                        <child>
+                          <object class="GtkButton" id="internet_button"><property name="label" translatable="yes">Увеличить скорость интернета</property><property name="margin-top">6</property><property name="margin-start">12</property><property name="margin-end">12</property></object>
+                        </child>
+                        <child>
+                          <object class="GtkButton" id="coffee_button"><property name="label" translatable="yes">Скачать дота 2 часть 2</property><property name="margin-top">6</property><property name="margin-bottom">12</property><property name="margin-start">12</property><property name="margin-end">12</property></object>
                         </child>
                       </object>
                     </property>
@@ -57,7 +69,7 @@
                 <child>
                   <object class="GtkStackPage">
                     <property name="name">more_tweaks</property>
-                    <property name="title">More Tweaks</property>
+                    <property name="title">Больше твиков</property>
                     <property name="child">
                       <object class="GtkScrolledWindow"><property name="child"><object class="GtkBox" id="useless_buttons_box"><property name="orientation">vertical</property></object></property></object>
                     </property>
@@ -77,7 +89,7 @@
                           <object class="GtkButton" id="balance_button"><property name="label" translatable="yes">баланс</property><property name="margin-top">6</property><property name="margin-start">12</property><property name="margin-end">12</property></object>
                         </child>
                         <child>
-                          <object class="GtkButton" id="save_mode_button"><property name="label" translatable="yes">save mode</property><property name="margin-top">6</property><property name="margin-bottom">12</property><property name="margin-start">12</property><property name="margin-end">12</property></object>
+                          <object class="GtkButton" id="save_mode_button"><property name="label" translatable="yes">режим сохранения</property><property name="margin-top">6</property><property name="margin-bottom">12</property><property name="margin-start">12</property><property name="margin-end">12</property></object>
                         </child>
                       </object>
                     </property>
@@ -196,61 +208,61 @@
                             <property name="margin-end">12</property>
                             <property name="spacing">6</property>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Repair System Using SFC</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkButton" id="sfc_button"><property name="label">Repair</property></object></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Восстановить систему с помощью SFC</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkButton" id="sfc_button"><property name="label">Восстановить</property></object></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Repair System Using DISM</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkButton" id="dism_button"><property name="label">Repair</property></object></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Восстановить систему с помощью DISM</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkButton" id="dism_button"><property name="label">Восстановить</property></object></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Clean TEMP Folder</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkButton" id="temp_button"><property name="label">Clean</property></object></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Очистить папку TEMP</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkButton" id="temp_button"><property name="label">Очистить</property></object></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Make a Report of The Battery Characteristics</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkButton" id="report_button"><property name="label">Report</property></object></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Сделать отчет о характеристиках батареи</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkButton" id="report_button"><property name="label">Отчет</property></object></child></object>
                             </child>
                             <child>
                               <object class="GtkSeparator"><property name="margin-top">6</property><property name="margin-bottom">6</property></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Disable Sticky Keys</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_sticky_keys_switch"/></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Отключить залипание клавиш</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_sticky_keys_switch"/></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Disable Core Isolation / Memory Integrity</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_core_isolation_switch"/></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Отключить изоляцию ядра / целостность памяти</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_core_isolation_switch"/></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Disable User Account Control</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_uac_switch"/></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Отключить контроль учетных записей</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_uac_switch"/></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Disable SmartScreen</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_smartscreen_switch"/></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Отключить SmartScreen</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_smartscreen_switch"/></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Disable Hibernation</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_hibernation_switch"/></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Отключить гибернацию</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_hibernation_switch"/></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Disable Sleep Timeout</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_sleep_timeout_switch"/></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Отключить тайм-аут сна</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_sleep_timeout_switch"/></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Disable Online Search in Start Menu via Bing</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_bing_search_switch"/></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Отключить онлайн-поиск в меню "Пуск" через Bing</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_bing_search_switch"/></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Disable Virtualization-based Security</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_vbs_switch"/></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Отключить безопасность на основе виртуализации</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_vbs_switch"/></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Disable Swap File</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_swap_file_switch"/></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Отключить файл подкачки</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_swap_file_switch"/></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Enable Old OS Bootloader</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="enable_old_bootloader_switch"/></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Включить старый загрузчик ОС</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="enable_old_bootloader_switch"/></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Additional Options on Each Boot</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="additional_boot_options_switch"/></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Дополнительные параметры при каждой загрузке</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="additional_boot_options_switch"/></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Set Chkdsk Timeout to 1 Minute</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="set_chkdsk_timeout_switch"/></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Установить тайм-аут Chkdsk на 1 минуту</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="set_chkdsk_timeout_switch"/></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Apply CompactOS System Compression</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="apply_compactos_switch"/></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Применить сжатие системы CompactOS</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="apply_compactos_switch"/></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Disable BitLocker Automatic Encryption</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_bitlocker_switch"/></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Отключить автоматическое шифрование BitLocker</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_bitlocker_switch"/></child></object>
                             </child>
                           </object>
                         </property>
@@ -272,28 +284,28 @@
                         <property name="spacing">6</property>
                         <child>
                           <object class="GtkLabel">
-                            <property name="label" translatable="yes">Remove UWP Apps</property>
+                            <property name="label" translatable="yes">Удалить приложения UWP</property>
                             <property name="xalign">0</property>
                             <attributes><attribute name="weight" value="bold"/><attribute name="scale" value="2.0"/></attributes>
                           </object>
                         </child>
                         <child>
                           <object class="GtkLabel">
-                            <property name="label" translatable="yes">Select The UWP Apps You Want to Remove</property>
+                            <property name="label" translatable="yes">Выберите приложения UWP, которые вы хотите удалить</property>
                             <property name="xalign">0</property>
                             <attributes><attribute name="weight" value="bold"/><attribute name="scale" value="1.5"/></attributes>
                           </object>
                         </child>
                         <child>
                           <object class="GtkLabel">
-                            <property name="label" translatable="yes">Please note: This apps will not be removed for all users.</property>
+                            <property name="label" translatable="yes">Обратите внимание: эти приложения не будут удалены для всех пользователей.</property>
                             <property name="xalign">0</property>
                             <attributes><attribute name="scale" value="1.2"/></attributes>
                           </object>
                         </child>
                         <child>
                           <object class="GtkButton" id="uwp_scan_button">
-                            <property name="label">Scan for Apps</property>
+                            <property name="label">Сканировать приложения</property>
                             <property name="halign">start</property>
                             <property name="margin-top">12</property>
                           </object>
@@ -331,15 +343,15 @@
                               <object class="GtkComboBoxText" id="uwp_view_combo">
                                 <property name="visible">false</property>
                                 <items>
-                                  <item translatable="yes" id="bloatware">Only Bloatware</item>
-                                  <item translatable="yes" id="popular">Show Popular Apps</item>
-                                  <item translatable="yes" id="necessary">Show Necessary Apps</item>
+                                  <item translatable="yes" id="bloatware">Только вредоносное ПО</item>
+                                  <item translatable="yes" id="popular">Показать популярные приложения</item>
+                                  <item translatable="yes" id="necessary">Показать необходимые приложения</item>
                                 </items>
                               </object>
                             </child>
                             <child>
                               <object class="GtkButton" id="uwp_remove_button">
-                                <property name="label">Start Removing UWP</property>
+                                <property name="label">Начать удаление UWP</property>
                                 <property name="visible">false</property>
                                 <property name="halign">end</property>
                                 <property name="hexpand">true</property>
@@ -367,14 +379,14 @@
                             <property name="spacing">6</property>
                             <child>
                               <object class="GtkLabel">
-                                <property name="label" translatable="yes">Personalization</property>
+                                <property name="label" translatable="yes">Персонализация</property>
                                 <property name="xalign">0</property>
                                 <attributes><attribute name="weight" value="bold"/><attribute name="scale" value="2.0"/></attributes>
                               </object>
                             </child>
                             <child>
                               <object class="GtkLabel">
-                                <property name="label" translatable="yes">Default Name for New Files and New Folders</property>
+                                <property name="label" translatable="yes">Имя по умолчанию для новых файлов и папок</property>
                                 <property name="xalign">0</property>
                                 <attributes><attribute name="scale" value="1.2"/></attributes>
                               </object>
@@ -384,21 +396,21 @@
                                 <property name="spacing">6</property>
                                 <child>
                                   <object class="GtkEntry" id="new_name_entry">
-                                    <property name="placeholder-text">New File</property>
+                                    <property name="placeholder-text">Новый файл</property>
                                     <property name="hexpand">true</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="GtkButton" id="apply_new_name_button"><property name="label">Apply</property></object>
+                                  <object class="GtkButton" id="apply_new_name_button"><property name="label">Применить</property></object>
                                 </child>
                                 <child>
-                                  <object class="GtkButton" id="standard_new_name_button"><property name="label">Standard</property></object>
+                                  <object class="GtkButton" id="standard_new_name_button"><property name="label">Стандарт</property></object>
                                 </child>
                               </object>
                             </child>
                             <child>
                               <object class="GtkLabel">
-                                <property name="label" translatable="yes">Change Selection Colors</property>
+                                <property name="label" translatable="yes">Изменить цвета выделения</property>
                                 <property name="xalign">0</property>
                                 <property name="margin-top">12</property>
                                 <attributes><attribute name="scale" value="1.2"/></attributes>
@@ -410,19 +422,19 @@
                                 <child>
                                   <object class="GtkComboBoxText" id="color_combo">
                                     <items>
-                                      <item translatable="yes" id="std">Standard</item>
-                                      <item translatable="yes" id="cyan">Cyan</item>
-                                      <item translatable="yes" id="purple">Purple</item>
-                                      <item translatable="yes" id="green">Green</item>
-                                      <item translatable="yes" id="orange">Orange</item>
-                                      <item translatable="yes" id="red">Red</item>
-                                      <item translatable="yes" id="blue">Blue</item>
-                                      <item translatable="yes" id="black">Black</item>
+                                      <item translatable="yes" id="std">Стандарт</item>
+                                      <item translatable="yes" id="cyan">Голубой</item>
+                                      <item translatable="yes" id="purple">Фиолетовый</item>
+                                      <item translatable="yes" id="green">Зеленый</item>
+                                      <item translatable="yes" id="orange">Оранжевый</item>
+                                      <item translatable="yes" id="red">Красный</item>
+                                      <item translatable="yes" id="blue">Синий</item>
+                                      <item translatable="yes" id="black">Черный</item>
                                     </items>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="GtkButton" id="apply_color_button"><property name="label">Apply</property></object>
+                                  <object class="GtkButton" id="apply_color_button"><property name="label">Применить</property></object>
                                 </child>
                               </object>
                             </child>
@@ -430,28 +442,28 @@
                               <object class="GtkSeparator"><property name="margin-top">12</property><property name="margin-bottom">6</property></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Enable End Task in Taskbar</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="enable_end_task_switch"/></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Включить завершение задачи на панели задач</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="enable_end_task_switch"/></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Small Window Buttons</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="small_window_buttons_switch"/></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Маленькие кнопки окна</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="small_window_buttons_switch"/></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Disable Blur on The Lock Screen</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_lock_screen_blur_switch"/></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Отключить размытие на экране блокировки</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_lock_screen_blur_switch"/></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Disable Transparency</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_transparency_switch"/></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Отключить прозрачность</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_transparency_switch"/></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Enable Dark theme</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="enable_dark_theme_switch"/></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Включить темную тему</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="enable_dark_theme_switch"/></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Verbose</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="verbose_switch"/></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Подробный</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="verbose_switch"/></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Disable Windows Logo in Bootloader</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_boot_logo_switch"/></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Отключить логотип Windows в загрузчике</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_boot_logo_switch"/></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Disable Animation in Bootloader</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_boot_animation_switch"/></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Отключить анимацию в загрузчике</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_boot_animation_switch"/></child></object>
                             </child>
                           </object>
                         </property>
@@ -475,49 +487,49 @@
                             <property name="spacing">6</property>
                             <child>
                               <object class="GtkLabel">
-                                <property name="label" translatable="yes">Context Menu</property>
+                                <property name="label" translatable="yes">Контекстное меню</property>
                                 <property name="xalign">0</property>
                                 <attributes><attribute name="weight" value="bold"/><attribute name="scale" value="2.0"/></attributes>
                               </object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><property name="margin-top">12</property><child><object class="GtkLabel"><property name="label">Enable Old Context Menu</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="enable_old_context_menu_switch"/></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><property name="margin-top">12</property><child><object class="GtkLabel"><property name="label">Включить старое контекстное меню</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="enable_old_context_menu_switch"/></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Remove Context Menu Delay</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="remove_context_menu_delay_switch"/></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Убрать задержку контекстного меню</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="remove_context_menu_delay_switch"/></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Scan with Microsoft Defender</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="scan_with_defender_switch"/></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Сканировать с помощью Microsoft Defender</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="scan_with_defender_switch"/></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Open in Terminal</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="open_in_terminal_switch"/></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Открыть в терминале</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="open_in_terminal_switch"/></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Add to Favorites</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="add_to_favorites_switch"/></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Добавить в избранное</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="add_to_favorites_switch"/></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Share</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="share_context_menu_switch"/></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Поделиться</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="share_context_menu_switch"/></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Restore previous versions</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="restore_previous_versions_switch"/></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Восстановить предыдущие версии</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="restore_previous_versions_switch"/></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Send to</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="send_to_context_menu_switch"/></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Отправить</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="send_to_context_menu_switch"/></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Copy as path</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="copy_as_path_switch"/></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Копировать как путь</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="copy_as_path_switch"/></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Pin to Start menu</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="pin_to_start_switch"/></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Закрепить в меню "Пуск"</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="pin_to_start_switch"/></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Pin to Taskbar</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="pin_to_taskbar_switch"/></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Закрепить на панели задач</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="pin_to_taskbar_switch"/></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Open in new tab</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="open_in_new_tab_switch"/></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Открыть в новой вкладке</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="open_in_new_tab_switch"/></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">NVIDIA Control Panel</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="nvidia_control_panel_switch"/></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Панель управления NVIDIA</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="nvidia_control_panel_switch"/></child></object>
                             </child>
                           </object>
                         </property>
@@ -541,34 +553,34 @@
                             <property name="spacing">6</property>
                             <child>
                               <object class="GtkLabel">
-                                <property name="label" translatable="yes">Windows Components</property>
+                                <property name="label" translatable="yes">Компоненты Windows</property>
                                 <property name="xalign">0</property>
                                 <attributes><attribute name="weight" value="bold"/><attribute name="scale" value="2.0"/></attributes>
                               </object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><property name="margin-top">12</property><child><object class="GtkLabel"><property name="label">Install DirectPlay</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkButton" id="install_directplay_button"><property name="label">Install</property></object></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><property name="margin-top">12</property><child><object class="GtkLabel"><property name="label">Установить DirectPlay</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkButton" id="install_directplay_button"><property name="label">Установить</property></object></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Install .NET Framework 2.0, 3.0, 3.5</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkButton" id="install_dotnet_button"><property name="label">Install</property></object></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Установить .NET Framework 2.0, 3.0, 3.5</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkButton" id="install_dotnet_button"><property name="label">Установить</property></object></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Enable Old Windows Photo Viewer</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkButton" id="enable_photo_viewer_button"><property name="label">Enable</property></object></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Включить старый просмотрщик фотографий Windows</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkButton" id="enable_photo_viewer_button"><property name="label">Включить</property></object></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox" id="lgp_box"><property name="spacing">12</property><property name="visible">false</property><child><object class="GtkLabel"><property name="label">Enable Local Group Policy Editor</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkButton" id="enable_lgp_button"><property name="label">Enable</property></object></child></object>
+                              <object class="GtkBox" id="lgp_box"><property name="spacing">12</property><property name="visible">false</property><child><object class="GtkLabel"><property name="label">Включить редактор локальной групповой политики</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkButton" id="enable_lgp_button"><property name="label">Включить</property></object></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Enable Third-Party PowerShell Scripts</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkButton" id="enable_ps_scripts_button"><property name="label">Enable</property></object></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Включить сторонние сценарии PowerShell</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkButton" id="enable_ps_scripts_button"><property name="label">Включить</property></object></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Disable Xbox DVR Requirement</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkButton" id="disable_dvr_button"><property name="label">Apply</property></object></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Отключить требование Xbox DVR</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkButton" id="disable_dvr_button"><property name="label">Применить</property></object></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Force Hyper-V Disable</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkButton" id="disable_hyperv_button"><property name="label">Apply</property></object></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Принудительно отключить Hyper-V</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkButton" id="disable_hyperv_button"><property name="label">Применить</property></object></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Reset Outdated Components And WinSxS Cache</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkButton" id="reset_winsxs_button"><property name="label">Reset</property></object></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Сбросить устаревшие компоненты и кэш WinSxS</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkButton" id="reset_winsxs_button"><property name="label">Сбросить</property></object></child></object>
                             </child>
                           </object>
                         </property>
@@ -592,46 +604,46 @@
                             <property name="spacing">6</property>
                             <child>
                               <object class="GtkLabel">
-                                <property name="label" translatable="yes">Windows Activation</property>
+                                <property name="label" translatable="yes">Активация Windows</property>
                                 <property name="xalign">0</property>
                                 <attributes><attribute name="weight" value="bold"/><attribute name="scale" value="2.0"/></attributes>
                               </object>
                             </child>
                             <child>
                               <object class="GtkLabel">
-                                <property name="label" translatable="yes">Automatic Activation (HWID)</property>
+                                <property name="label" translatable="yes">Автоматическая активация (HWID)</property>
                                 <property name="xalign">0</property>
                                 <property name="margin-top">12</property>
                                 <attributes><attribute name="weight" value="bold"/><attribute name="scale" value="1.5"/></attributes>
                               </object>
                             </child>
                             <child>
-                              <object class="GtkButton" id="hwid_button"><property name="label">Apply</property><property name="halign">start</property></object>
+                              <object class="GtkButton" id="hwid_button"><property name="label">Применить</property><property name="halign">start</property></object>
                             </child>
                             <child>
                               <object class="GtkLabel">
-                                <property name="label" translatable="yes">Automatic Office Activation</property>
+                                <property name="label" translatable="yes">Автоматическая активация Office</property>
                                 <property name="xalign">0</property>
                                 <property name="margin-top">12</property>
                                 <attributes><attribute name="weight" value="bold"/><attribute name="scale" value="1.5"/></attributes>
                               </object>
                             </child>
                             <child>
-                              <object class="GtkButton" id="office_button"><property name="label">Apply</property><property name="halign">start</property></object>
+                              <object class="GtkButton" id="office_button"><property name="label">Применить</property><property name="halign">start</property></object>
                             </child>
                             <child>
                               <object class="GtkSeparator"><property name="margin-top">12</property><property name="margin-bottom">6</property></object>
                             </child>
                             <child>
                               <object class="GtkLabel">
-                                <property name="label" translatable="yes">Manual Activation (KMS)</property>
+                                <property name="label" translatable="yes">Ручная активация (KMS)</property>
                                 <property name="xalign">0</property>
                                 <attributes><attribute name="weight" value="bold"/><attribute name="scale" value="1.5"/></attributes>
                               </object>
                             </child>
                             <child>
                               <object class="GtkLabel">
-                                <property name="label" translatable="yes">Select KMS Server (Try Another If Activation Fails)</property>
+                                <property name="label" translatable="yes">Выберите KMS-сервер (попробуйте другой, если активация не удалась)</property>
                                 <property name="xalign">0</property>
                                 <attributes><attribute name="scale" value="1.2"/></attributes>
                               </object>
@@ -650,20 +662,20 @@
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="GtkButton" id="apply_kms_button"><property name="label">Apply</property></object>
+                                  <object class="GtkButton" id="apply_kms_button"><property name="label">Применить</property></object>
                                 </child>
                               </object>
                             </child>
                             <child>
                               <object class="GtkLabel">
-                                <property name="label" translatable="yes">Apply Activation</property>
+                                <property name="label" translatable="yes">Применить активацию</property>
                                 <property name="xalign">0</property>
                                 <property name="margin-top">12</property>
                                 <attributes><attribute name="scale" value="1.2"/></attributes>
                               </object>
                             </child>
                             <child>
-                              <object class="GtkButton" id="apply_activation_button"><property name="label">Apply</property><property name="halign">start</property></object>
+                              <object class="GtkButton" id="apply_activation_button"><property name="label">Применить</property><property name="halign">start</property></object>
                             </child>
                             <child>
                               <object class="GtkProgressBar" id="activation_progress_bar">
@@ -699,7 +711,7 @@
                             <property name="spacing">6</property>
                             <child>
                               <object class="GtkLabel">
-                                <property name="label" translatable="yes">App Installation</property>
+                                <property name="label" translatable="yes">Установка приложений</property>
                                 <property name="xalign">0</property>
                                 <attributes><attribute name="weight" value="bold"/><attribute name="scale" value="2.0"/></attributes>
                               </object>
@@ -734,16 +746,16 @@
                                     <property name="spacing">6</property>
                                     <property name="margin-top">6</property>
                                     <child>
-                                      <object class="GtkButton" id="install_winget_button"><property name="label">Install WinGet</property></object>
+                                      <object class="GtkButton" id="install_winget_button"><property name="label">Установить WinGet</property></object>
                                     </child>
                                     <child>
-                                      <object class="GtkButton" id="skip_app_button"><property name="label">Skip this App</property><property name="visible">false</property></object>
+                                      <object class="GtkButton" id="skip_app_button"><property name="label">Пропустить это приложение</property><property name="visible">false</property></object>
                                     </child>
                                     <child>
-                                      <object class="GtkButton" id="start_install_button"><property name="label">Start Installation</property><property name="halign">end</property><property name="hexpand">true</property></object>
+                                      <object class="GtkButton" id="start_install_button"><property name="label">Начать установку</property><property name="halign">end</property><property name="hexpand">true</property></object>
                                     </child>
                                     <child>
-                                      <object class="GtkButton" id="stop_install_button"><property name="label">Stop Installation</property><property name="visible">false</property><property name="halign">end</property><property name="hexpand">true</property></object>
+                                      <object class="GtkButton" id="stop_install_button"><property name="label">Остановить установку</property><property name="visible">false</property><property name="halign">end</property><property name="hexpand">true</property></object>
                                     </child>
                                   </object>
                                 </child>
@@ -771,72 +783,72 @@
                             <property name="spacing">6</property>
                             <child>
                               <object class="GtkLabel">
-                                <property name="label" translatable="yes">Quick Windows Setup</property>
+                                <property name="label" translatable="yes">Быстрая настройка Windows</property>
                                 <property name="xalign">0</property>
                                 <attributes><attribute name="weight" value="bold"/><attribute name="scale" value="2.0"/></attributes>
                               </object>
                             </child>
                             <child>
                               <object class="GtkLabel">
-                                <property name="label" translatable="yes">Use Checkboxes To Select The Settings To Be Applied.</property>
+                                <property name="label" translatable="yes">Используйте флажки для выбора применяемых настроек.</property>
                                 <property name="xalign">0</property>
                                 <attributes><attribute name="scale" value="1.2"/></attributes>
                               </object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><property name="margin-top">12</property><child><object class="GtkLabel"><property name="label">Show Hidden Files and Folders</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_show_hidden_switch"><property name="active">true</property></object></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><property name="margin-top">12</property><child><object class="GtkLabel"><property name="label">Показывать скрытые файлы и папки</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_show_hidden_switch"><property name="active">true</property></object></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Show File Extensions</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_show_extensions_switch"><property name="active">true</property></object></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Показывать расширения файлов</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_show_extensions_switch"><property name="active">true</property></object></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Open 'This PC' Page In Explorer Instead Of 'Home'</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_open_this_pc_switch"><property name="active">true</property></object></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Открывать страницу "Этот компьютер" в проводнике вместо "Главная"</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_open_this_pc_switch"><property name="active">true</property></object></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Pause Windows Update Service</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_pause_updates_switch"><property name="active">true</property></object></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Приостановить службу обновления Windows</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_pause_updates_switch"><property name="active">true</property></object></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Show 'This PC' On Desktop</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_show_this_pc_switch"><property name="active">true</property></object></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Показывать "Этот компьютер" на рабочем столе</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_show_this_pc_switch"><property name="active">true</property></object></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Remove The '-Shortcut' Ending From New Shortcuts</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_remove_shortcut_suffix_switch"><property name="active">true</property></object></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Удалить окончание "-ярлык" из новых ярлыков</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_remove_shortcut_suffix_switch"><property name="active">true</property></object></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Hide The Task View And Widgets Button</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_hide_task_view_switch"><property name="active">true</property></object></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Скрыть кнопку "Просмотр задач" и "Виджеты"</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_hide_task_view_switch"><property name="active">true</property></object></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Remove Ads In Start Menu And Taskbar Search</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_remove_ads_switch"><property name="active">true</property></object></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Удалить рекламу в меню "Пуск" и поиске на панели задач</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_remove_ads_switch"><property name="active">true</property></object></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Disable Online Search In Start Via Bing</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_disable_bing_switch"><property name="active">true</property></object></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Отключить онлайн-поиск в "Пуске" через Bing</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_disable_bing_switch"><property name="active">true</property></object></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Fix Disk Duplication In Explorer</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_fix_duplicates_switch"><property name="active">true</property></object></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Исправить дублирование дисков в проводнике</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_fix_duplicates_switch"><property name="active">true</property></object></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Disable Automatic BitLocker Encryption</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_disable_bitlocker_switch"><property name="active">true</property></object></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Отключить автоматическое шифрование BitLocker</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_disable_bitlocker_switch"><property name="active">true</property></object></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Disable Sticky Keys</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_disable_sticky_keys_switch"><property name="active">true</property></object></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Отключить залипание клавиш</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_disable_sticky_keys_switch"><property name="active">true</property></object></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Enable Clipboard</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_enable_clipboard_switch"><property name="active">true</property></object></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Включить буфер обмена</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_enable_clipboard_switch"><property name="active">true</property></object></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Remove Context Menu Delay</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_remove_context_delay_switch"><property name="active">true</property></object></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Убрать задержку контекстного меню</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_remove_context_delay_switch"><property name="active">true</property></object></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Set Chkdsk Timeout to 1 Minute</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_set_chkdsk_timeout_switch"><property name="active">true</property></object></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Установить тайм-аут Chkdsk на 1 минуту</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_set_chkdsk_timeout_switch"><property name="active">true</property></object></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Install DirectPlay</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_install_directplay_switch"><property name="active">true</property></object></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Установить DirectPlay</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_install_directplay_switch"><property name="active">true</property></object></child></object>
                             </child>
                             <child>
-                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Install .NET Framework 2.0, 3.0, 3.5</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_install_dotnet_switch"><property name="active">true</property></object></child></object>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Установить .NET Framework 2.0, 3.0, 3.5</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="quick_install_dotnet_switch"><property name="active">true</property></object></child></object>
                             </child>
                             <child>
                               <object class="GtkButton" id="start_quick_setup_button">
-                                <property name="label">Start Quick Setup</property>
+                                <property name="label">Начать быструю настройку</property>
                                 <property name="halign">end</property>
                                 <property name="margin-top">12</property>
                               </object>
@@ -863,14 +875,14 @@
                             <property name="spacing">6</property>
                             <child>
                               <object class="GtkLabel">
-                                <property name="label" translatable="yes">Shutdown After Time</property>
+                                <property name="label" translatable="yes">Выключение по таймеру</property>
                                 <property name="xalign">0</property>
                                 <attributes><attribute name="weight" value="bold"/><attribute name="scale" value="2.0"/></attributes>
                               </object>
                             </child>
                             <child>
                               <object class="GtkLabel">
-                                <property name="label" translatable="yes">Enter The Number of Minutes After Which The System Will Shutdown. Press The *Shutdown* Button to Start The Timer You Set.</property>
+                                <property name="label" translatable="yes">Введите количество минут, через которое система выключится. Нажмите кнопку *Выключить*, чтобы запустить установленный вами таймер.</property>
                                 <property name="wrap">true</property>
                                 <property name="xalign">0</property>
                                 <attributes><attribute name="scale" value="1.2"/></attributes>
@@ -882,14 +894,14 @@
                                 <property name="margin-top">12</property>
                                 <child>
                                   <object class="GtkEntry" id="minutes_entry">
-                                    <property name="placeholder-text">Minutes</property>
+                                    <property name="placeholder-text">Минуты</property>
                                     <property name="width-chars">6</property>
                                     <property name="input-purpose">number</property>
                                   </object>
                                 </child>
                                 <child>
                                   <object class="GtkLabel" id="hours_label">
-                                    <property name="label">Minutes / Hours: 0</property>
+                                    <property name="label">Минуты / Часы: 0</property>
                                     <property name="hexpand">true</property>
                                     <property name="xalign">0</property>
                                   </object>
@@ -901,10 +913,10 @@
                                 <property name="spacing">6</property>
                                 <property name="margin-top">6</property>
                                 <child>
-                                  <object class="GtkButton" id="start_shutdown_timer_button"><property name="label">Start Shutdown Timer</property></object>
+                                  <object class="GtkButton" id="start_shutdown_timer_button"><property name="label">Запустить таймер выключения</property></object>
                                 </child>
                                 <child>
-                                  <object class="GtkButton" id="cancel_shutdown_timer_button"><property name="label">Cancel Shutdown Timer</property></object>
+                                  <object class="GtkButton" id="cancel_shutdown_timer_button"><property name="label">Отменить таймер выключения</property></object>
                                 </child>
                               </object>
                             </child>
@@ -913,22 +925,22 @@
                                 <property name="spacing">6</property>
                                 <property name="margin-top">12</property>
                                 <child>
-                                  <object class="GtkButton" id="ten_minutes_button"><property name="label">10 Minutes</property></object>
+                                  <object class="GtkButton" id="ten_minutes_button"><property name="label">10 минут</property></object>
                                 </child>
                                 <child>
-                                  <object class="GtkButton" id="thirty_minutes_button"><property name="label">30 Minutes</property></object>
+                                  <object class="GtkButton" id="thirty_minutes_button"><property name="label">30 минут</property></object>
                                 </child>
                                 <child>
-                                  <object class="GtkButton" id="one_hour_button"><property name="label">1 Hour</property></object>
+                                  <object class="GtkButton" id="one_hour_button"><property name="label">1 час</property></object>
                                 </child>
                                 <child>
-                                  <object class="GtkButton" id="two_hours_button"><property name="label">2 Hours</property></object>
+                                  <object class="GtkButton" id="two_hours_button"><property name="label">2 часа</property></object>
                                 </child>
                                 <child>
-                                  <object class="GtkButton" id="four_hours_button"><property name="label">4 Hours</property></object>
+                                  <object class="GtkButton" id="four_hours_button"><property name="label">4 часа</property></object>
                                 </child>
                                 <child>
-                                  <object class="GtkButton" id="six_hours_button"><property name="label">6 Hours</property></object>
+                                  <object class="GtkButton" id="six_hours_button"><property name="label">6 часов</property></object>
                                 </child>
                               </object>
                             </child>
@@ -977,18 +989,18 @@
                 <child>
                   <object class="GtkStackPage">
                     <property name="name">benchmark</property>
-                    <property name="title">Benchmark</property>
+                    <property name="title">Бенчмарк</property>
                     <property name="child">
                       <object class="GtkBox">
                         <property name="orientation">vertical</property>
                         <child>
-                          <object class="GtkButton" id="single_test_button"><property name="label" translatable="yes">single test</property><property name="margin-top">12</property><property name="margin-start">12</property><property name="margin-end">12</property></object>
+                          <object class="GtkButton" id="single_test_button"><property name="label" translatable="yes">одноядерный тест</property><property name="margin-top">12</property><property name="margin-start">12</property><property name="margin-end">12</property></object>
                         </child>
                         <child>
-                          <object class="GtkButton" id="multi_test_button"><property name="label" translatable="yes">multi test</property><property name="margin-top">6</property><property name="margin-start">12</property><property name="margin-end">12</property></object>
+                          <object class="GtkButton" id="multi_test_button"><property name="label" translatable="yes">многоядерный тест</property><property name="margin-top">6</property><property name="margin-start">12</property><property name="margin-end">12</property></object>
                         </child>
                         <child>
-                          <object class="GtkButton" id="view_results_button"><property name="label" translatable="yes">view other resultats</property><property name="margin-top">6</property><property name="margin-bottom">12</property><property name="margin-start">12</property><property name="margin-end">12</property></object>
+                          <object class="GtkButton" id="view_results_button"><property name="label" translatable="yes">посмотреть другие результаты</property><property name="margin-top">6</property><property name="margin-bottom">12</property><property name="margin-start">12</property><property name="margin-end">12</property></object>
                         </child>
                         <child>
                           <object class="GtkLabel" id="benchmark_result_label"><property name="margin-top">12</property><property name="margin-bottom">12</property><property name="margin-start">12</property><property name="margin-end">12</property></object>

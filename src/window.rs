@@ -32,6 +32,14 @@ mod imp {
         #[template_child]
         pub maku_tweaker_button: TemplateChild<gtk::Button>,
         #[template_child]
+        pub win12_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub ram_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub internet_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub coffee_button: TemplateChild<gtk::Button>,
+        #[template_child]
         pub useless_buttons_box: TemplateChild<gtk::Box>,
         #[template_child]
         pub performance_button: TemplateChild<gtk::Button>,
@@ -300,6 +308,10 @@ mod imp {
                 yasha_button: TemplateChild::default(),
                 max_button: TemplateChild::default(),
                 maku_tweaker_button: TemplateChild::default(),
+                win12_button: TemplateChild::default(),
+                ram_button: TemplateChild::default(),
+                internet_button: TemplateChild::default(),
+                coffee_button: TemplateChild::default(),
                 useless_buttons_box: TemplateChild::default(),
                 performance_button: TemplateChild::default(),
                 balance_button: TemplateChild::default(),
@@ -491,6 +503,34 @@ mod imp {
                 }
             });
 
+            let win12_window_weak = window.downgrade();
+            self.win12_button.connect_clicked(move |_| {
+                if let Some(window) = win12_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let ram_window_weak = window.downgrade();
+            self.ram_button.connect_clicked(move |_| {
+                if let Some(window) = ram_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let internet_window_weak = window.downgrade();
+            self.internet_button.connect_clicked(move |_| {
+                if let Some(window) = internet_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let coffee_window_weak = window.downgrade();
+            self.coffee_button.connect_clicked(move |_| {
+                if let Some(window) = coffee_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
             let performance_window_weak = window.downgrade();
             self.performance_button.connect_clicked(move |_| {
                 if let Some(window) = performance_window_weak.upgrade() {
@@ -516,7 +556,7 @@ mod imp {
             self.single_test_button.connect_clicked(move |_| {
                 if let Some(window) = single_test_window_weak.upgrade() {
                     let score = random_int_range(300, 1500);
-                    window.imp().benchmark_result_label.set_text(&format!("Your score: {}", score));
+                    window.imp().benchmark_result_label.set_text(&format!("Ваш результат: {}", score));
                 }
             });
 
@@ -524,7 +564,7 @@ mod imp {
             self.multi_test_button.connect_clicked(move |_| {
                 if let Some(window) = multi_test_window_weak.upgrade() {
                     let score = random_int_range(1000, 30000);
-                    window.imp().benchmark_result_label.set_text(&format!("Your score: {}", score));
+                    window.imp().benchmark_result_label.set_text(&format!("Ваш результат: {}", score));
                 }
             });
 
@@ -577,6 +617,443 @@ mod imp {
                     }
                 }
                 glib::Propagation::Stop
+            });
+
+            let show_hidden_files_window_weak = window.downgrade();
+            self.show_hidden_files_switch.connect_state_set(move |_, _| {
+                if let Some(window) = show_hidden_files_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let show_extensions_window_weak = window.downgrade();
+            self.show_extensions_switch.connect_state_set(move |_, _| {
+                if let Some(window) = show_extensions_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let open_this_pc_window_weak = window.downgrade();
+            self.open_this_pc_switch.connect_state_set(move |_, _| {
+                if let Some(window) = open_this_pc_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let hide_drive_letters_window_weak = window.downgrade();
+            self.hide_drive_letters_switch.connect_state_set(move |_, _| {
+                if let Some(window) = hide_drive_letters_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let select_drive_letters_window_weak = window.downgrade();
+            self.select_drive_letters_button.connect_clicked(move |_| {
+                if let Some(window) = select_drive_letters_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let show_all_drive_letters_window_weak = window.downgrade();
+            self.show_all_drive_letters_button.connect_clicked(move |_| {
+                if let Some(window) = show_all_drive_letters_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let fix_duplicate_drives_window_weak = window.downgrade();
+            self.fix_duplicate_drives_button.connect_clicked(move |_| {
+                if let Some(window) = fix_duplicate_drives_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let pause_update_service_window_weak = window.downgrade();
+            self.pause_update_service_button.connect_clicked(move |_| {
+                if let Some(window) = pause_update_service_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let clear_update_cache_window_weak = window.downgrade();
+            self.clear_update_cache_button.connect_clicked(move |_| {
+                if let Some(window) = clear_update_cache_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let block_version_window_weak = window.downgrade();
+            self.block_version_button.connect_clicked(move |_| {
+                if let Some(window) = block_version_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let disable_updates_window_weak = window.downgrade();
+            self.disable_updates_switch.connect_state_set(move |_, _| {
+                if let Some(window) = disable_updates_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let disable_driver_updates_window_weak = window.downgrade();
+            self.disable_driver_updates_switch.connect_state_set(move |_, _| {
+                if let Some(window) = disable_driver_updates_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let disable_reserved_storage_window_weak = window.downgrade();
+            self.disable_reserved_storage_switch.connect_state_set(move |_, _| {
+                if let Some(window) = disable_reserved_storage_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let sfc_window_weak = window.downgrade();
+            self.sfc_button.connect_clicked(move |_| {
+                if let Some(window) = sfc_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let dism_window_weak = window.downgrade();
+            self.dism_button.connect_clicked(move |_| {
+                if let Some(window) = dism_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let temp_window_weak = window.downgrade();
+            self.temp_button.connect_clicked(move |_| {
+                if let Some(window) = temp_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let report_window_weak = window.downgrade();
+            self.report_button.connect_clicked(move |_| {
+                if let Some(window) = report_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let disable_sticky_keys_window_weak = window.downgrade();
+            self.disable_sticky_keys_switch.connect_state_set(move |_, _| {
+                if let Some(window) = disable_sticky_keys_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let disable_core_isolation_window_weak = window.downgrade();
+            self.disable_core_isolation_switch.connect_state_set(move |_, _| {
+                if let Some(window) = disable_core_isolation_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let disable_uac_window_weak = window.downgrade();
+            self.disable_uac_switch.connect_state_set(move |_, _| {
+                if let Some(window) = disable_uac_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let disable_smartscreen_window_weak = window.downgrade();
+            self.disable_smartscreen_switch.connect_state_set(move |_, _| {
+                if let Some(window) = disable_smartscreen_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let disable_hibernation_window_weak = window.downgrade();
+            self.disable_hibernation_switch.connect_state_set(move |_, _| {
+                if let Some(window) = disable_hibernation_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let disable_sleep_timeout_window_weak = window.downgrade();
+            self.disable_sleep_timeout_switch.connect_state_set(move |_, _| {
+                if let Some(window) = disable_sleep_timeout_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let disable_bing_search_window_weak = window.downgrade();
+            self.disable_bing_search_switch.connect_state_set(move |_, _| {
+                if let Some(window) = disable_bing_search_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let disable_vbs_window_weak = window.downgrade();
+            self.disable_vbs_switch.connect_state_set(move |_, _| {
+                if let Some(window) = disable_vbs_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let disable_swap_file_window_weak = window.downgrade();
+            self.disable_swap_file_switch.connect_state_set(move |_, _| {
+                if let Some(window) = disable_swap_file_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let enable_old_bootloader_window_weak = window.downgrade();
+            self.enable_old_bootloader_switch.connect_state_set(move |_, _| {
+                if let Some(window) = enable_old_bootloader_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let additional_boot_options_window_weak = window.downgrade();
+            self.additional_boot_options_switch.connect_state_set(move |_, _| {
+                if let Some(window) = additional_boot_options_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let set_chkdsk_timeout_window_weak = window.downgrade();
+            self.set_chkdsk_timeout_switch.connect_state_set(move |_, _| {
+                if let Some(window) = set_chkdsk_timeout_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let apply_compactos_window_weak = window.downgrade();
+            self.apply_compactos_switch.connect_state_set(move |_, _| {
+                if let Some(window) = apply_compactos_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let disable_bitlocker_window_weak = window.downgrade();
+            self.disable_bitlocker_switch.connect_state_set(move |_, _| {
+                if let Some(window) = disable_bitlocker_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let quick_show_hidden_window_weak = window.downgrade();
+            self.quick_show_hidden_switch.connect_state_set(move |_, _| {
+                if let Some(window) = quick_show_hidden_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let quick_show_extensions_window_weak = window.downgrade();
+            self.quick_show_extensions_switch.connect_state_set(move |_, _| {
+                if let Some(window) = quick_show_extensions_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let quick_open_this_pc_window_weak = window.downgrade();
+            self.quick_open_this_pc_switch.connect_state_set(move |_, _| {
+                if let Some(window) = quick_open_this_pc_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let quick_pause_updates_window_weak = window.downgrade();
+            self.quick_pause_updates_switch.connect_state_set(move |_, _| {
+                if let Some(window) = quick_pause_updates_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let quick_show_this_pc_window_weak = window.downgrade();
+            self.quick_show_this_pc_switch.connect_state_set(move |_, _| {
+                if let Some(window) = quick_show_this_pc_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let quick_remove_shortcut_suffix_window_weak = window.downgrade();
+            self.quick_remove_shortcut_suffix_switch.connect_state_set(move |_, _| {
+                if let Some(window) = quick_remove_shortcut_suffix_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let quick_hide_task_view_window_weak = window.downgrade();
+            self.quick_hide_task_view_switch.connect_state_set(move |_, _| {
+                if let Some(window) = quick_hide_task_view_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let quick_remove_ads_window_weak = window.downgrade();
+            self.quick_remove_ads_switch.connect_state_set(move |_, _| {
+                if let Some(window) = quick_remove_ads_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let quick_disable_bing_window_weak = window.downgrade();
+            self.quick_disable_bing_switch.connect_state_set(move |_, _| {
+                if let Some(window) = quick_disable_bing_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let quick_fix_duplicates_window_weak = window.downgrade();
+            self.quick_fix_duplicates_switch.connect_state_set(move |_, _| {
+                if let Some(window) = quick_fix_duplicates_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let quick_disable_bitlocker_window_weak = window.downgrade();
+            self.quick_disable_bitlocker_switch.connect_state_set(move |_, _| {
+                if let Some(window) = quick_disable_bitlocker_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let quick_disable_sticky_keys_window_weak = window.downgrade();
+            self.quick_disable_sticky_keys_switch.connect_state_set(move |_, _| {
+                if let Some(window) = quick_disable_sticky_keys_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let quick_enable_clipboard_window_weak = window.downgrade();
+            self.quick_enable_clipboard_switch.connect_state_set(move |_, _| {
+                if let Some(window) = quick_enable_clipboard_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let quick_remove_context_delay_window_weak = window.downgrade();
+            self.quick_remove_context_delay_switch.connect_state_set(move |_, _| {
+                if let Some(window) = quick_remove_context_delay_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let quick_set_chkdsk_timeout_window_weak = window.downgrade();
+            self.quick_set_chkdsk_timeout_switch.connect_state_set(move |_, _| {
+                if let Some(window) = quick_set_chkdsk_timeout_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let quick_install_directplay_window_weak = window.downgrade();
+            self.quick_install_directplay_switch.connect_state_set(move |_, _| {
+                if let Some(window) = quick_install_directplay_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let quick_install_dotnet_window_weak = window.downgrade();
+            self.quick_install_dotnet_switch.connect_state_set(move |_, _| {
+                if let Some(window) = quick_install_dotnet_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let start_quick_setup_window_weak = window.downgrade();
+            self.start_quick_setup_button.connect_clicked(move |_| {
+                if let Some(window) = start_quick_setup_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let start_shutdown_timer_window_weak = window.downgrade();
+            self.start_shutdown_timer_button.connect_clicked(move |_| {
+                if let Some(window) = start_shutdown_timer_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let cancel_shutdown_timer_window_weak = window.downgrade();
+            self.cancel_shutdown_timer_button.connect_clicked(move |_| {
+                if let Some(window) = cancel_shutdown_timer_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let ten_minutes_window_weak = window.downgrade();
+            self.ten_minutes_button.connect_clicked(move |_| {
+                if let Some(window) = ten_minutes_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let thirty_minutes_window_weak = window.downgrade();
+            self.thirty_minutes_button.connect_clicked(move |_| {
+                if let Some(window) = thirty_minutes_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let one_hour_window_weak = window.downgrade();
+            self.one_hour_button.connect_clicked(move |_| {
+                if let Some(window) = one_hour_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let two_hours_window_weak = window.downgrade();
+            self.two_hours_button.connect_clicked(move |_| {
+                if let Some(window) = two_hours_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let four_hours_window_weak = window.downgrade();
+            self.four_hours_button.connect_clicked(move |_| {
+                if let Some(window) = four_hours_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let six_hours_window_weak = window.downgrade();
+            self.six_hours_button.connect_clicked(move |_| {
+                if let Some(window) = six_hours_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
             });
 
             let apply_new_name_window_weak = window.downgrade();
@@ -968,8 +1445,8 @@ mod imp {
 
                     progress_bar.set_visible(true);
                     let counter = Rc::new(Cell::new(0.0));
-                    glib::timeout_add_local(Duration::from_millis(1000), move || {
-                        let val = counter.get() + 0.01;
+                    glib::timeout_add_local(Duration::from_millis(10), move || {
+                        let val = counter.get() + 0.0001;
                         counter.set(val);
                         progress_bar.set_fraction(val);
                         if val < 1.0 {
@@ -1014,16 +1491,16 @@ mod imp {
             let mut sys = System::new_all();
             sys.refresh_all();
 
-            let cpu_info = format!("CPU: {} ({} cores)", sys.global_cpu_info().brand(), sys.cpus().len());
+            let cpu_info = format!("CPU: {} ({} ядер)", sys.global_cpu_info().brand(), sys.cpus().len());
 
 
 
             let final_gpu_info =
-                "GPU: Not found".to_string();
+                "GPU: Не найдено".to_string();
 
 
             let info = format!(
-                "System name: {}\nKernel version: {}\nOS version: {}\n\n{}\n\n{}\n\nTotal memory: {} GB\nUsed memory: {} MB",
+                "Имя системы: {}\nВерсия ядра: {}\nВерсия ОС: {}\n\n{}\n\n{}\n\nВсего памяти: {} ГБ\nИспользуемая память: {} МБ",
                 sys.name().unwrap_or_default(),
                 sys.kernel_version().unwrap_or_default(),
                 sys.os_version().unwrap_or_default(),
