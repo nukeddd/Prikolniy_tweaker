@@ -210,6 +210,20 @@ use super::*;
         pub activation_progress_bar: TemplateChild<gtk::ProgressBar>,
         #[template_child]
         pub activation_status_label: TemplateChild<gtk::Label>,
+        #[template_child]
+        pub app_install_grid: TemplateChild<gtk::Grid>,
+        #[template_child]
+        pub app_install_status_label: TemplateChild<gtk::Label>,
+        #[template_child]
+        pub app_install_progress_bar: TemplateChild<gtk::ProgressBar>,
+        #[template_child]
+        pub install_winget_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub skip_app_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub start_install_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub stop_install_button: TemplateChild<gtk::Button>,
     }
 
     impl Default for TweakerWindow {
@@ -312,6 +326,13 @@ use super::*;
                 apply_activation_button: TemplateChild::default(),
                 activation_progress_bar: TemplateChild::default(),
                 activation_status_label: TemplateChild::default(),
+                app_install_grid: TemplateChild::default(),
+                app_install_status_label: TemplateChild::default(),
+                app_install_progress_bar: TemplateChild::default(),
+                install_winget_button: TemplateChild::default(),
+                skip_app_button: TemplateChild::default(),
+                start_install_button: TemplateChild::default(),
+                stop_install_button: TemplateChild::default(),
             }
         }
     }
@@ -731,6 +752,34 @@ use super::*;
             let apply_activation_window_weak = window.downgrade();
             self.apply_activation_button.connect_clicked(move |_| {
                 if let Some(window) = apply_activation_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let install_winget_window_weak = window.downgrade();
+            self.install_winget_button.connect_clicked(move |_| {
+                if let Some(window) = install_winget_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let skip_app_window_weak = window.downgrade();
+            self.skip_app_button.connect_clicked(move |_| {
+                if let Some(window) = skip_app_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let start_install_window_weak = window.downgrade();
+            self.start_install_button.connect_clicked(move |_| {
+                if let Some(window) = start_install_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let stop_install_window_weak = window.downgrade();
+            self.stop_install_button.connect_clicked(move |_| {
+                if let Some(window) = stop_install_window_weak.upgrade() {
                     show_dialog(&window);
                 }
             });
