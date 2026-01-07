@@ -260,28 +260,6 @@ use super::*;
         pub quick_install_dotnet_switch: TemplateChild<gtk::Switch>,
         #[template_child]
         pub start_quick_setup_button: TemplateChild<gtk::Button>,
-        #[template_child]
-        pub minutes_entry: TemplateChild<gtk::Entry>,
-        #[template_child]
-        pub hours_label: TemplateChild<gtk::Label>,
-        #[template_child]
-        pub start_shutdown_timer_button: TemplateChild<gtk::Button>,
-        #[template_child]
-        pub cancel_shutdown_timer_button: TemplateChild<gtk::Button>,
-        #[template_child]
-        pub ten_minutes_button: TemplateChild<gtk::Button>,
-        #[template_child]
-        pub thirty_minutes_button: TemplateChild<gtk::Button>,
-        #[template_child]
-        pub one_hour_button: TemplateChild<gtk::Button>,
-        #[template_child]
-        pub two_hours_button: TemplateChild<gtk::Button>,
-        #[template_child]
-        pub four_hours_button: TemplateChild<gtk::Button>,
-        #[template_child]
-        pub six_hours_button: TemplateChild<gtk::Button>,
-        #[template_child]
-        pub shutdown_time_scale: TemplateChild<gtk::Scale>,
     }
 
     impl Default for TweakerWindow {
@@ -409,17 +387,6 @@ use super::*;
                 quick_install_directplay_switch: TemplateChild::default(),
                 quick_install_dotnet_switch: TemplateChild::default(),
                 start_quick_setup_button: TemplateChild::default(),
-                minutes_entry: TemplateChild::default(),
-                hours_label: TemplateChild::default(),
-                start_shutdown_timer_button: TemplateChild::default(),
-                cancel_shutdown_timer_button: TemplateChild::default(),
-                ten_minutes_button: TemplateChild::default(),
-                thirty_minutes_button: TemplateChild::default(),
-                one_hour_button: TemplateChild::default(),
-                two_hours_button: TemplateChild::default(),
-                four_hours_button: TemplateChild::default(),
-                six_hours_button: TemplateChild::default(),
-                shutdown_time_scale: TemplateChild::default(),
             }
         }
     }
@@ -867,6 +834,13 @@ use super::*;
             let stop_install_window_weak = window.downgrade();
             self.stop_install_button.connect_clicked(move |_| {
                 if let Some(window) = stop_install_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let start_quick_setup_window_weak = window.downgrade();
+            self.start_quick_setup_button.connect_clicked(move |_| {
+                if let Some(window) = start_quick_setup_window_weak.upgrade() {
                     show_dialog(&window);
                 }
             });
