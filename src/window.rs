@@ -122,6 +122,8 @@ mod imp {
         #[template_child]
         pub disable_bitlocker_switch: TemplateChild<gtk::Switch>,
         #[template_child]
+        pub uwp_scan_button: TemplateChild<gtk::Button>,
+        #[template_child]
         pub uwp_grid: TemplateChild<gtk::Grid>,
         #[template_child]
         pub uwp_status_label: TemplateChild<gtk::Label>,
@@ -343,6 +345,7 @@ mod imp {
                 set_chkdsk_timeout_switch: TemplateChild::default(),
                 apply_compactos_switch: TemplateChild::default(),
                 disable_bitlocker_switch: TemplateChild::default(),
+                uwp_scan_button: TemplateChild::default(),
                 uwp_grid: TemplateChild::default(),
                 uwp_status_label: TemplateChild::default(),
                 uwp_view_combo: TemplateChild::default(),
@@ -955,9 +958,9 @@ mod imp {
                 self.uwp_grid.attach(&switch, 1, i as i32, 1, 1);
             }
 
-            let uwp_remove_button_weak = window.downgrade();
-            self.uwp_remove_button.connect_clicked(move |_| {
-                if let Some(window) = uwp_remove_button_weak.upgrade() {
+            let uwp_scan_button_weak = window.downgrade();
+            self.uwp_scan_button.connect_clicked(move |_| {
+                if let Some(window) = uwp_scan_button_weak.upgrade() {
                     let progress_bar = window.imp().uwp_progress_bar.clone();
                     progress_bar.set_visible(true);
                     let counter = Rc::new(Cell::new(0.0));
@@ -969,9 +972,17 @@ mod imp {
                             glib::ControlFlow::Continue
                         } else {
                             progress_bar.set_visible(false);
+                            progress_bar.set_fraction(0.0);
                             glib::ControlFlow::Break
                         }
                     });
+                }
+            });
+
+            let uwp_remove_button_weak = window.downgrade();
+            self.uwp_remove_button.connect_clicked(move |_| {
+                if let Some(window) = uwp_remove_button_weak.upgrade() {
+                    show_dialog(&window);
                 }
             });
 
