@@ -8,9 +8,10 @@ use rand::prelude::*;
 use sysinfo::{System, SystemExt, CpuExt, ComponentExt};
 
 mod imp {
-    use super::*;
+    use rand::thread_rng;
+use super::*;
 
-    const RESPONSES: &[&str] = &["бывает", "нельзя", "ну ок"];
+    const RESPONSES: &[&str] = &["бывает", "нельзя", "ну ок", "упс", "вжух!", "магия", "а вот и не угадал", "что-то пошло не так", "почти получилось", "могло быть и хуже", "не в этот раз", "попробуй еще раз", "и так сойдет", "ну что ж поделать", "такова жизнь", "это фиаско, братан", "все сломалось", "запрещено", "даже не думай", "руки прочь!", "я бы не стал", "осторожно, злая кнопка", "ладно", "допустим", "и что?", "скучно", "норм", "потом", "завтра", "никогда", "может быть", "возможно...", "загрузка..."];
 
     #[derive(Debug, CompositeTemplate)]
     #[template(resource = "/com/github/jeremy-compost/tweaker/window.ui")]
@@ -229,12 +230,12 @@ mod imp {
                 glib::Propagation::Stop
             });
 
-            for i in 1..=50 {
-                let button = gtk::Button::with_label(&format!("Useless Button {}", i));
+            for i in 1..=69 {
+                let button = gtk::Button::with_label(&format!("Кнопка что то делает {}", i));
                 button.set_margin_top(6);
                 button.set_margin_start(12);
                 button.set_margin_end(12);
-                if i == 50 {
+                if i == 69 {
                     button.set_margin_bottom(12);
                 }
 
