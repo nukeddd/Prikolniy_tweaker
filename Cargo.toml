@@ -12,7 +12,7 @@ panic = "abort"
 [dependencies]
 gtk4 = { version = "0.11.0-alpha.1" }
 anyhow = "1.0.82"
-rand = "0.9"
+rand = "0.9.2"
 libadwaita = "0.9.0-alpha.0"
 sysinfo = "0.28"
 

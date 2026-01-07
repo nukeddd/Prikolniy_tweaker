@@ -5,10 +5,10 @@ use gtk::subclass::prelude::*;
 use gtk::prelude::*;
 use gtk::CompositeTemplate;
 use rand::prelude::*;
-use sysinfo::{System, SystemExt, CpuExt, ComponentExt};
+use sysinfo::{System, SystemExt, CpuExt};
 
 mod imp {
-    use rand::thread_rng;
+    use gtk4::glib::random_int_range;
 use super::*;
 
     const RESPONSES: &[&str] = &["бывает", "нельзя", "ну ок", "упс", "вжух!", "магия", "а вот и не угадал", "что-то пошло не так", "почти получилось", "могло быть и хуже", "не в этот раз", "попробуй еще раз", "и так сойдет", "ну что ж поделать", "такова жизнь", "это фиаско, братан", "все сломалось", "запрещено", "даже не думай", "руки прочь!", "я бы не стал", "осторожно, злая кнопка", "ладно", "допустим", "и что?", "скучно", "норм", "потом", "завтра", "никогда", "может быть", "возможно...", "загрузка..."];
@@ -164,8 +164,7 @@ use super::*;
             let single_test_window_weak = window.downgrade();
             self.single_test_button.connect_clicked(move |_| {
                 if let Some(window) = single_test_window_weak.upgrade() {
-                    let mut rng = thread_rng();
-                    let score = rng.gen_range(300..1500);
+                    let score = random_int_range(300, 1500);
                     window.imp().benchmark_result_label.set_text(&format!("Your score: {}", score));
                 }
             });
@@ -173,8 +172,7 @@ use super::*;
             let multi_test_window_weak = window.downgrade();
             self.multi_test_button.connect_clicked(move |_| {
                 if let Some(window) = multi_test_window_weak.upgrade() {
-                    let mut rng = thread_rng();
-                    let score = rng.gen_range(1000..30000);
+                    let score = random_int_range(1000, 30000);
                     window.imp().benchmark_result_label.set_text(&format!("Your score: {}", score));
                 }
             });
@@ -275,15 +273,17 @@ use super::*;
     }
 
     fn show_dialog(window: &super::TweakerWindow) {
-        let mut rng = thread_rng();
-        let response = RESPONSES.choose(&mut rng).unwrap_or(&"");
+        let mut rng  = random_int_range(0, RESPONSES.len() as i32);
+
+
+        let response = RESPONSES[rng as usize];
 
         let dialog = gtk::MessageDialog::new(
             Some(window),
             gtk::DialogFlags::MODAL,
             gtk::MessageType::Info,
             gtk::ButtonsType::Ok,
-            *response,
+            response,
         );
         dialog.connect_response(|dialog, _| {
             dialog.close();
