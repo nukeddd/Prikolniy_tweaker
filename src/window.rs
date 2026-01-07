@@ -6,10 +6,13 @@ use gtk::prelude::*;
 use gtk::CompositeTemplate;
 use rand::prelude::*;
 use sysinfo::{System, SystemExt, CpuExt};
+use std::time::Duration;
+use std::cell::Cell;
+use std::rc::Rc;
 
 mod imp {
     use gtk4::glib::random_int_range;
-use super::*;
+    use super::*;
 
     const RESPONSES: &[&str] = &["бывает", "нельзя", "ну ок", "упс", "вжух!", "магия", "а вот и не угадал", "что-то пошло не так", "почти получилось", "могло быть и хуже", "не в этот раз", "попробуй еще раз", "и так сойдет", "ну что ж поделать", "такова жизнь", "это фиаско, братан", "все сломалось", "запрещено", "даже не думай", "руки прочь!", "я бы не стал", "осторожно, злая кнопка", "ладно", "допустим", "и что?", "скучно", "норм", "потом", "завтра", "никогда", "может быть", "возможно...", "загрузка..."];
 
@@ -118,6 +121,8 @@ use super::*;
         pub apply_compactos_switch: TemplateChild<gtk::Switch>,
         #[template_child]
         pub disable_bitlocker_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub uwp_grid: TemplateChild<gtk::Grid>,
         #[template_child]
         pub uwp_status_label: TemplateChild<gtk::Label>,
         #[template_child]
@@ -260,6 +265,28 @@ use super::*;
         pub quick_install_dotnet_switch: TemplateChild<gtk::Switch>,
         #[template_child]
         pub start_quick_setup_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub minutes_entry: TemplateChild<gtk::Entry>,
+        #[template_child]
+        pub hours_label: TemplateChild<gtk::Label>,
+        #[template_child]
+        pub start_shutdown_timer_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub cancel_shutdown_timer_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub ten_minutes_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub thirty_minutes_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub one_hour_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub two_hours_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub four_hours_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub six_hours_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub shutdown_time_scale: TemplateChild<gtk::Scale>,
     }
 
     impl Default for TweakerWindow {
@@ -316,6 +343,7 @@ use super::*;
                 set_chkdsk_timeout_switch: TemplateChild::default(),
                 apply_compactos_switch: TemplateChild::default(),
                 disable_bitlocker_switch: TemplateChild::default(),
+                uwp_grid: TemplateChild::default(),
                 uwp_status_label: TemplateChild::default(),
                 uwp_view_combo: TemplateChild::default(),
                 uwp_remove_button: TemplateChild::default(),
@@ -387,6 +415,17 @@ use super::*;
                 quick_install_directplay_switch: TemplateChild::default(),
                 quick_install_dotnet_switch: TemplateChild::default(),
                 start_quick_setup_button: TemplateChild::default(),
+                minutes_entry: TemplateChild::default(),
+                hours_label: TemplateChild::default(),
+                start_shutdown_timer_button: TemplateChild::default(),
+                cancel_shutdown_timer_button: TemplateChild::default(),
+                ten_minutes_button: TemplateChild::default(),
+                thirty_minutes_button: TemplateChild::default(),
+                one_hour_button: TemplateChild::default(),
+                two_hours_button: TemplateChild::default(),
+                four_hours_button: TemplateChild::default(),
+                six_hours_button: TemplateChild::default(),
+                shutdown_time_scale: TemplateChild::default(),
             }
         }
     }
@@ -845,6 +884,97 @@ use super::*;
                 }
             });
 
+            let start_shutdown_timer_window_weak = window.downgrade();
+            self.start_shutdown_timer_button.connect_clicked(move |_| {
+                if let Some(window) = start_shutdown_timer_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let cancel_shutdown_timer_window_weak = window.downgrade();
+            self.cancel_shutdown_timer_button.connect_clicked(move |_| {
+                if let Some(window) = cancel_shutdown_timer_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let ten_minutes_window_weak = window.downgrade();
+            self.ten_minutes_button.connect_clicked(move |_| {
+                if let Some(window) = ten_minutes_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let thirty_minutes_window_weak = window.downgrade();
+            self.thirty_minutes_button.connect_clicked(move |_| {
+                if let Some(window) = thirty_minutes_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let one_hour_window_weak = window.downgrade();
+            self.one_hour_button.connect_clicked(move |_| {
+                if let Some(window) = one_hour_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let two_hours_window_weak = window.downgrade();
+            self.two_hours_button.connect_clicked(move |_| {
+                if let Some(window) = two_hours_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let four_hours_window_weak = window.downgrade();
+            self.four_hours_button.connect_clicked(move |_| {
+                if let Some(window) = four_hours_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let six_hours_window_weak = window.downgrade();
+            self.six_hours_button.connect_clicked(move |_| {
+                if let Some(window) = six_hours_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let uwp_apps = vec![
+                "Microsoft.ZuneVideo", "Microsoft.ZuneMusic", "Microsoft.MicrosoftStickyNotes", "Microsoft.MixedReality.Portal", "Microsoft.MicrosoftSolitaireCollection", "Microsoft.Messaging", "Microsoft.WindowsFeedbackHub", "microsoft.windowscommunicationsapps", "Microsoft.BingNews", "Microsoft.Microsoft3DViewer",
+                "Microsoft.BingWeather", "Microsoft.549981C3F5F10", "Microsoft.XboxApp", "Microsoft.GetHelp", "Microsoft.WindowsCamera", "Microsoft.WindowsMaps", "Microsoft.Office.OneNote", "Microsoft.YourPhone", "Microsoft.Windows.DevHome", "Clipchamp.Clipchamp",
+                "Microsoft.PowerAutomateDesktop", "Microsoft.Getstarted", "Microsoft.WindowsSoundRecorder", "Microsoft.WindowsStore", "Microsoft.People", "Microsoft.SkypeApp", "Microsoft.WindowsAlarms", "Microsoft.OutlookForWindows"
+            ];
+
+            for (i, app_name) in uwp_apps.iter().enumerate() {
+                let switch = gtk::Switch::new();
+                let label = gtk::Label::new(Some(app_name));
+                label.set_hexpand(true);
+                label.set_xalign(0.0);
+                self.uwp_grid.attach(&label, 0, i as i32, 1, 1);
+                self.uwp_grid.attach(&switch, 1, i as i32, 1, 1);
+            }
+
+            let uwp_remove_button_weak = window.downgrade();
+            self.uwp_remove_button.connect_clicked(move |_| {
+                if let Some(window) = uwp_remove_button_weak.upgrade() {
+                    let progress_bar = window.imp().uwp_progress_bar.clone();
+                    progress_bar.set_visible(true);
+                    let counter = Rc::new(Cell::new(0.0));
+                    glib::timeout_add_local(Duration::from_millis(100), move || {
+                        let val = counter.get() + 0.01;
+                        counter.set(val);
+                        progress_bar.set_fraction(val);
+                        if val < 1.0 {
+                            glib::ControlFlow::Continue
+                        } else {
+                            progress_bar.set_visible(false);
+                            glib::ControlFlow::Break
+                        }
+                    });
+                }
+            });
+
             for i in 1..=69 {
                 let button = gtk::Button::with_label(&format!("Кнопка что то делает {}", i));
                 button.set_margin_top(6);
@@ -890,7 +1020,7 @@ use super::*;
     }
 
     fn show_dialog(window: &super::TweakerWindow) {
-        let mut rng  = random_int_range(0, RESPONSES.len() as i32);
+        let rng  = random_int_range(0, RESPONSES.len() as i32);
 
 
         let response = RESPONSES[rng as usize];

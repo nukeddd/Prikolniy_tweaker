@@ -83,6 +83,29 @@
                     </property>
                   </object>
                 </child>
+                <child>
+                  <object class="GtkStackPage">
+                    <property name="name">privacy</property>
+                    <property name="title">Отключение телеметрии</property>
+                    <property name="child">
+                      <object class="GtkBox">
+                        <property name="orientation">vertical</property><property name="margin-top">12</property><property name="margin-bottom">12</property><property name="margin-start">12</property><property name="margin-end">12</property><property name="spacing">6</property>
+                        <child>
+                          <object class="GtkBox"><property name="orientation">horizontal</property><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">телеметрия microsoft</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="ms_telemetry_switch"><property name="active">true</property></object></child></object>
+                        </child>
+                        <child>
+                          <object class="GtkBox"><property name="orientation">horizontal</property><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">телеметрия bubunta inc</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="bubunta_telemetry_switch"><property name="active">true</property></object></child></object>
+                        </child>
+                        <child>
+                          <object class="GtkBox"><property name="orientation">horizontal</property><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">телеметрия РКН</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="rkn_telemetry_switch"><property name="active">true</property></object></child></object>
+                        </child>
+                        <child>
+                          <object class="GtkBox"><property name="orientation">horizontal</property><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">телеметрия Фортуна ТЕЛЕКОМ</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="fortuna_telemetry_switch"><property name="active">true</property></object></child></object>
+                        </child>
+                      </object>
+                    </property>
+                  </object>
+                </child>
                 <!-- New Pages -->
                 <child>
                   <object class="GtkStackPage">
@@ -240,79 +263,90 @@
                     <property name="name">uwp</property>
                     <property name="title">Удаление UWP</property>
                     <property name="child">
-                      <object class="GtkScrolledWindow">
-                        <property name="child">
-                          <object class="GtkBox">
-                            <property name="orientation">vertical</property>
+                      <object class="GtkBox">
+                        <property name="orientation">vertical</property>
+                        <property name="margin-top">12</property>
+                        <property name="margin-bottom">12</property>
+                        <property name="margin-start">12</property>
+                        <property name="margin-end">12</property>
+                        <property name="spacing">6</property>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="label" translatable="yes">Remove UWP Apps</property>
+                            <property name="xalign">0</property>
+                            <attributes><attribute name="weight" value="bold"/><attribute name="scale" value="2.0"/></attributes>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="label" translatable="yes">Select The UWP Apps You Want to Remove</property>
+                            <property name="xalign">0</property>
+                            <attributes><attribute name="weight" value="bold"/><attribute name="scale" value="1.5"/></attributes>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="label" translatable="yes">Please note: This apps will not be removed for all users.</property>
+                            <property name="xalign">0</property>
+                            <attributes><attribute name="scale" value="1.2"/></attributes>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkButton" id="uwp_scan_button">
+                            <property name="label">Scan for Apps</property>
+                            <property name="halign">start</property>
                             <property name="margin-top">12</property>
-                            <property name="margin-bottom">12</property>
-                            <property name="margin-start">12</property>
-                            <property name="margin-end">12</property>
-                            <property name="spacing">6</property>
-                            <child>
-                              <object class="GtkLabel">
-                                <property name="label" translatable="yes">Remove UWP Apps</property>
-                                <property name="xalign">0</property>
-                                <attributes><attribute name="weight" value="bold"/><attribute name="scale" value="2.0"/></attributes>
-                              </object>
-                            </child>
-                            <child>
-                              <object class="GtkLabel">
-                                <property name="label" translatable="yes">Select The UWP Apps You Want to Remove</property>
-                                <property name="xalign">0</property>
-                                <attributes><attribute name="weight" value="bold"/><attribute name="scale" value="1.5"/></attributes>
-                              </object>
-                            </child>
-                            <child>
-                              <object class="GtkLabel">
-                                <property name="label" translatable="yes">Please note: This apps will not be removed for all users.</property>
-                                <property name="xalign">0</property>
-                                <attributes><attribute name="scale" value="1.2"/></attributes>
-                              </object>
-                            </child>
-                            <child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="uwp_status_label">
+                            <property name="xalign">0</property>
+                            <property name="visible">false</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkProgressBar" id="uwp_progress_bar">
+                            <property name="margin-top">6</property>
+                            <property name="visible">false</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkScrolledWindow">
+                            <property name="vexpand">true</property>
+                            <property name="child">
                               <object class="GtkGrid" id="uwp_grid">
+                                <property name="visible">false</property>
                                 <property name="margin-top">12</property>
                                 <property name="column-spacing">24</property>
                                 <property name="row-spacing">6</property>
-                                <!-- Dynamically populated -->
+                              </object>
+                            </property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkBox">
+                            <property name="spacing">6</property>
+                            <property name="margin-top">6</property>
+                            <child>
+                              <object class="GtkComboBoxText" id="uwp_view_combo">
+                                <property name="visible">false</property>
+                                <items>
+                                  <item translatable="yes" id="bloatware">Only Bloatware</item>
+                                  <item translatable="yes" id="popular">Show Popular Apps</item>
+                                  <item translatable="yes" id="necessary">Show Necessary Apps</item>
+                                </items>
                               </object>
                             </child>
                             <child>
-                              <object class="GtkGrid">
-                                <property name="margin-top">12</property>
-                                <child>
-                                  <object class="GtkLabel" id="uwp_status_label">
-                                    <property name="label">Checking installed UWP apps...</property>
-                                    <property name="hexpand">true</property>
-                                    <property name="xalign">0</property>
-                                  </object>
-                                </child>
-                                <child>
-                                  <object class="GtkComboBoxText" id="uwp_view_combo">
-                                    <property name="visible">false</property>
-                                    <items>
-                                      <item translatable="yes" id="bloatware">Only Bloatware</item>
-                                      <item translatable="yes" id="popular">Show Popular Apps</item>
-                                      <item translatable="yes" id="necessary">Show Necessary Apps</item>
-                                    </items>
-                                  </object>
-                                </child>
-                                <child>
-                                  <object class="GtkButton" id="uwp_remove_button">
-                                    <property name="label">Start Removing UWP</property>
-                                    <property name="visible">false</property>
-                                  </object>
-                                </child>
-                              </object>
-                            </child>
-                            <child>
-                              <object class="GtkProgressBar" id="uwp_progress_bar">
-                                <property name="margin-top">6</property>
+                              <object class="GtkButton" id="uwp_remove_button">
+                                <property name="label">Start Removing UWP</property>
+                                <property name="visible">false</property>
+                                <property name="halign">end</property>
+                                <property name="hexpand">true</property>
                               </object>
                             </child>
                           </object>
-                        </property>
+                        </child>
                       </object>
                     </property>
                   </object>
@@ -487,29 +521,6 @@
                             </child>
                           </object>
                         </property>
-                      </object>
-                    </property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkStackPage">
-                    <property name="name">privacy</property>
-                    <property name="title">Отключение телеметрии</property>
-                    <property name="child">
-                      <object class="GtkBox">
-                        <property name="orientation">vertical</property><property name="margin-top">12</property><property name="margin-bottom">12</property><property name="margin-start">12</property><property name="margin-end">12</property><property name="spacing">6</property>
-                        <child>
-                          <object class="GtkBox"><property name="orientation">horizontal</property><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">телеметрия microsoft</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="ms_telemetry_switch"><property name="active">true</property></object></child></object>
-                        </child>
-                        <child>
-                          <object class="GtkBox"><property name="orientation">horizontal</property><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">телеметрия bubunta inc</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="bubunta_telemetry_switch"><property name="active">true</property></object></child></object>
-                        </child>
-                        <child>
-                          <object class="GtkBox"><property name="orientation">horizontal</property><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">телеметрия РКН</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="rkn_telemetry_switch"><property name="active">true</property></object></child></object>
-                        </child>
-                        <child>
-                          <object class="GtkBox"><property name="orientation">horizontal</property><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">телеметрия Фортуна ТЕЛЕКОМ</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="fortuna_telemetry_switch"><property name="active">true</property></object></child></object>
-                        </child>
                       </object>
                     </property>
                   </object>
