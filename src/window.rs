@@ -178,6 +178,38 @@ use super::*;
         pub open_in_new_tab_switch: TemplateChild<gtk::Switch>,
         #[template_child]
         pub nvidia_control_panel_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub install_directplay_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub install_dotnet_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub enable_photo_viewer_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub lgp_box: TemplateChild<gtk::Box>,
+        #[template_child]
+        pub enable_lgp_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub enable_ps_scripts_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub disable_dvr_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub disable_hyperv_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub reset_winsxs_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub hwid_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub office_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub kms_server_combo: TemplateChild<gtk::ComboBoxText>,
+        #[template_child]
+        pub apply_kms_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub apply_activation_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub activation_progress_bar: TemplateChild<gtk::ProgressBar>,
+        #[template_child]
+        pub activation_status_label: TemplateChild<gtk::Label>,
     }
 
     impl Default for TweakerWindow {
@@ -264,6 +296,22 @@ use super::*;
                 pin_to_taskbar_switch: TemplateChild::default(),
                 open_in_new_tab_switch: TemplateChild::default(),
                 nvidia_control_panel_switch: TemplateChild::default(),
+                install_directplay_button: TemplateChild::default(),
+                install_dotnet_button: TemplateChild::default(),
+                enable_photo_viewer_button: TemplateChild::default(),
+                lgp_box: TemplateChild::default(),
+                enable_lgp_button: TemplateChild::default(),
+                enable_ps_scripts_button: TemplateChild::default(),
+                disable_dvr_button: TemplateChild::default(),
+                disable_hyperv_button: TemplateChild::default(),
+                reset_winsxs_button: TemplateChild::default(),
+                hwid_button: TemplateChild::default(),
+                office_button: TemplateChild::default(),
+                kms_server_combo: TemplateChild::default(),
+                apply_kms_button: TemplateChild::default(),
+                apply_activation_button: TemplateChild::default(),
+                activation_progress_bar: TemplateChild::default(),
+                activation_status_label: TemplateChild::default(),
             }
         }
     }
@@ -601,6 +649,90 @@ use super::*;
                     show_dialog(&window);
                 }
                 glib::Propagation::Stop
+            });
+
+            let install_directplay_window_weak = window.downgrade();
+            self.install_directplay_button.connect_clicked(move |_| {
+                if let Some(window) = install_directplay_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let install_dotnet_window_weak = window.downgrade();
+            self.install_dotnet_button.connect_clicked(move |_| {
+                if let Some(window) = install_dotnet_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let enable_photo_viewer_window_weak = window.downgrade();
+            self.enable_photo_viewer_button.connect_clicked(move |_| {
+                if let Some(window) = enable_photo_viewer_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let enable_lgp_window_weak = window.downgrade();
+            self.enable_lgp_button.connect_clicked(move |_| {
+                if let Some(window) = enable_lgp_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let enable_ps_scripts_window_weak = window.downgrade();
+            self.enable_ps_scripts_button.connect_clicked(move |_| {
+                if let Some(window) = enable_ps_scripts_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let disable_dvr_window_weak = window.downgrade();
+            self.disable_dvr_button.connect_clicked(move |_| {
+                if let Some(window) = disable_dvr_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let disable_hyperv_window_weak = window.downgrade();
+            self.disable_hyperv_button.connect_clicked(move |_| {
+                if let Some(window) = disable_hyperv_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let reset_winsxs_window_weak = window.downgrade();
+            self.reset_winsxs_button.connect_clicked(move |_| {
+                if let Some(window) = reset_winsxs_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let hwid_window_weak = window.downgrade();
+            self.hwid_button.connect_clicked(move |_| {
+                if let Some(window) = hwid_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let office_window_weak = window.downgrade();
+            self.office_button.connect_clicked(move |_| {
+                if let Some(window) = office_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let apply_kms_window_weak = window.downgrade();
+            self.apply_kms_button.connect_clicked(move |_| {
+                if let Some(window) = apply_kms_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let apply_activation_window_weak = window.downgrade();
+            self.apply_activation_button.connect_clicked(move |_| {
+                if let Some(window) = apply_activation_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
             });
 
             for i in 1..=69 {
