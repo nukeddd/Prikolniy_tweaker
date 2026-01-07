@@ -85,15 +85,6 @@
                 </child>
                 <child>
                   <object class="GtkStackPage">
-                    <property name="name">sys_info</property>
-                    <property name="title">Sys Info</property>
-                    <property name="child">
-                      <object class="GtkScrolledWindow"><property name="child"><object class="GtkLabel" id="sys_info_label"><property name="margin-top">12</property><property name="margin-bottom">12</property><property name="margin-start">12</property><property name="margin-end">12</property></object></property></object>
-                    </property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkStackPage">
                     <property name="name">telemetry</property>
                     <property name="title">Телеметрия</property>
                     <property name="child">
@@ -859,7 +850,107 @@
                     <property name="name">shutdown</property>
                     <property name="title">Таймер выключения</property>
                     <property name="child">
-                      <object class="GtkLabel"><property name="label">Планировщик выключения</property></object>
+                      <object class="GtkScrolledWindow">
+                        <property name="child">
+                          <object class="GtkBox">
+                            <property name="orientation">vertical</property>
+                            <property name="margin-top">12</property>
+                            <property name="margin-bottom">12</property>
+                            <property name="margin-start">12</property>
+                            <property name="margin-end">12</property>
+                            <property name="spacing">6</property>
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="label" translatable="yes">Shutdown After Time</property>
+                                <property name="xalign">0</property>
+                                <attributes><attribute name="weight" value="bold"/><attribute name="scale" value="2.0"/></attributes>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="label" translatable="yes">Enter The Number of Minutes After Which The System Will Shutdown. Press The *Shutdown* Button to Start The Timer You Set.</property>
+                                <property name="wrap">true</property>
+                                <property name="xalign">0</property>
+                                <attributes><attribute name="scale" value="1.2"/></attributes>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkBox">
+                                <property name="spacing">6</property>
+                                <property name="margin-top">12</property>
+                                <child>
+                                  <object class="GtkEntry" id="minutes_entry">
+                                    <property name="placeholder-text">Minutes</property>
+                                    <property name="width-chars">6</property>
+                                    <property name="input-purpose">number</property>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel" id="hours_label">
+                                    <property name="label">Minutes / Hours: 0</property>
+                                    <property name="hexpand">true</property>
+                                    <property name="xalign">0</property>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkBox">
+                                <property name="spacing">6</property>
+                                <property name="margin-top">6</property>
+                                <child>
+                                  <object class="GtkButton" id="start_shutdown_timer_button"><property name="label">Start Shutdown Timer</property></object>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="cancel_shutdown_timer_button"><property name="label">Cancel Shutdown Timer</property></object>
+                                </child>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkBox">
+                                <property name="spacing">6</property>
+                                <property name="margin-top">12</property>
+                                <child>
+                                  <object class="GtkButton" id="ten_minutes_button"><property name="label">10 Minutes</property></object>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="thirty_minutes_button"><property name="label">30 Minutes</property></object>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="one_hour_button"><property name="label">1 Hour</property></object>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="two_hours_button"><property name="label">2 Hours</property></object>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="four_hours_button"><property name="label">4 Hours</property></object>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="six_hours_button"><property name="label">6 Hours</property></object>
+                                </child>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkScale" id="shutdown_time_scale">
+                                <property name="orientation">horizontal</property>
+                                <property name="margin-top">12</property>
+                                <property name="round-digits">0</property>
+                                <property name="draw-value">true</property>
+                                <property name="has-origin">true</property>
+                                <property name="adjustment">
+                                  <object class="GtkAdjustment">
+                                    <property name="lower">0</property>
+                                    <property name="upper">288</property>
+                                    <property name="step-increment">1</property>
+                                    <property name="page-increment">12</property>
+                                    <property name="value">24</property>
+                                  </object>
+                                </property>
+                              </object>
+                            </child>
+                          </object>
+                        </property>
+                      </object>
                     </property>
                   </object>
                 </child>
@@ -868,7 +959,16 @@
                     <property name="name">pc_info</property>
                     <property name="title">Информация о ПК</property>
                     <property name="child">
-                      <object class="GtkLabel"><property name="label">Системная информация</property></object>
+                      <object class="GtkScrolledWindow">
+                        <property name="child">
+                          <object class="GtkLabel" id="sys_info_label">
+                            <property name="margin-top">12</property>
+                            <property name="margin-bottom">12</property>
+                            <property name="margin-start">12</property>
+                            <property name="margin-end">12</property>
+                          </object>
+                        </property>
+                      </object>
                     </property>
                   </object>
                 </child>
