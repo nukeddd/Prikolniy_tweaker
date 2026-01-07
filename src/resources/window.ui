@@ -158,7 +158,35 @@
                     <property name="name">update</property>
                     <property name="title">Windows Update</property>
                     <property name="child">
-                      <object class="GtkLabel"><property name="label">Управление обновлениями Windows</property></object>
+                      <object class="GtkBox">
+                        <property name="orientation">vertical</property>
+                        <property name="margin-top">12</property>
+                        <property name="margin-bottom">12</property>
+                        <property name="margin-start">12</property>
+                        <property name="margin-end">12</property>
+                        <property name="spacing">6</property>
+                        <child>
+                          <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Приостановить службу windows update</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkButton" id="pause_update_service_button"><property name="label">приостановить</property></object></child></object>
+                        </child>
+                        <child>
+                          <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Отчистить кэш Windows Update</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkButton" id="clear_update_cache_button"><property name="label">отчистить</property></object></child></object>
+                        </child>
+                        <child>
+                          <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Заблокировать обновления на определенной версии Windows</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkComboBoxText" id="block_version_combo"><items><item translatable="yes" id="win10">Windows 10</item><item translatable="yes" id="win11">Windows 11</item></items></object></child><child><object class="GtkButton" id="block_version_button"><property name="label">заблокировать</property></object></child></object>
+                        </child>
+                        <child>
+                          <object class="GtkSeparator"><property name="margin-top">6</property><property name="margin-bottom">6</property></object>
+                        </child>
+                        <child>
+                          <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Отключить Windows update</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_updates_switch"/></child></object>
+                        </child>
+                        <child>
+                          <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Отключить обновление драйверов через центр обновления</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_driver_updates_switch"/></child></object>
+                        </child>
+                        <child>
+                          <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Отключить зарезервированное хранилище для обновлений</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_reserved_storage_switch"/></child></object>
+                        </child>
+                      </object>
                     </property>
                   </object>
                 </child>
@@ -167,7 +195,75 @@
                     <property name="name">recovery</property>
                     <property name="title">Система и восстановление</property>
                     <property name="child">
-                      <object class="GtkLabel"><property name="label">Оптимизация и восстановление системы</property></object>
+                      <object class="GtkScrolledWindow">
+                        <property name="child">
+                          <object class="GtkBox">
+                            <property name="orientation">vertical</property>
+                            <property name="margin-top">12</property>
+                            <property name="margin-bottom">12</property>
+                            <property name="margin-start">12</property>
+                            <property name="margin-end">12</property>
+                            <property name="spacing">6</property>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Repair System Using SFC</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkButton" id="sfc_button"><property name="label">Repair</property></object></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Repair System Using DISM</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkButton" id="dism_button"><property name="label">Repair</property></object></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Clean TEMP Folder</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkButton" id="temp_button"><property name="label">Clean</property></object></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Make a Report of The Battery Characteristics</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkButton" id="report_button"><property name="label">Report</property></object></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkSeparator"><property name="margin-top">6</property><property name="margin-bottom">6</property></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Disable Sticky Keys</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_sticky_keys_switch"/></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Disable Core Isolation / Memory Integrity</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_core_isolation_switch"/></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Disable User Account Control</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_uac_switch"/></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Disable SmartScreen</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_smartscreen_switch"/></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Disable Hibernation</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_hibernation_switch"/></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Disable Sleep Timeout</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_sleep_timeout_switch"/></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Disable Online Search in Start Menu via Bing</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_bing_search_switch"/></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Disable Virtualization-based Security</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_vbs_switch"/></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Disable Swap File</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_swap_file_switch"/></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Enable Old OS Bootloader</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="enable_old_bootloader_switch"/></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Additional Options on Each Boot</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="additional_boot_options_switch"/></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Set Chkdsk Timeout to 1 Minute</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="set_chkdsk_timeout_switch"/></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Apply CompactOS System Compression</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="apply_compactos_switch"/></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Disable BitLocker Automatic Encryption</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="disable_bitlocker_switch"/></child></object>
+                            </child>
+                          </object>
+                        </property>
+                      </object>
                     </property>
                   </object>
                 </child>

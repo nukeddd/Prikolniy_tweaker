@@ -68,6 +68,56 @@ use super::*;
         pub show_all_drive_letters_button: TemplateChild<gtk::Button>,
         #[template_child]
         pub fix_duplicate_drives_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub pause_update_service_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub clear_update_cache_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub block_version_combo: TemplateChild<gtk::ComboBoxText>,
+        #[template_child]
+        pub block_version_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub disable_updates_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub disable_driver_updates_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub disable_reserved_storage_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub sfc_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub dism_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub temp_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub report_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub disable_sticky_keys_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub disable_core_isolation_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub disable_uac_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub disable_smartscreen_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub disable_hibernation_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub disable_sleep_timeout_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub disable_bing_search_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub disable_vbs_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub disable_swap_file_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub enable_old_bootloader_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub additional_boot_options_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub set_chkdsk_timeout_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub apply_compactos_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub disable_bitlocker_switch: TemplateChild<gtk::Switch>,
     }
 
     impl Default for TweakerWindow {
@@ -99,6 +149,31 @@ use super::*;
                 select_drive_letters_button: TemplateChild::default(),
                 show_all_drive_letters_button: TemplateChild::default(),
                 fix_duplicate_drives_button: TemplateChild::default(),
+                pause_update_service_button: TemplateChild::default(),
+                clear_update_cache_button: TemplateChild::default(),
+                block_version_combo: TemplateChild::default(),
+                block_version_button: TemplateChild::default(),
+                disable_updates_switch: TemplateChild::default(),
+                disable_driver_updates_switch: TemplateChild::default(),
+                disable_reserved_storage_switch: TemplateChild::default(),
+                sfc_button: TemplateChild::default(),
+                dism_button: TemplateChild::default(),
+                temp_button: TemplateChild::default(),
+                report_button: TemplateChild::default(),
+                disable_sticky_keys_switch: TemplateChild::default(),
+                disable_core_isolation_switch: TemplateChild::default(),
+                disable_uac_switch: TemplateChild::default(),
+                disable_smartscreen_switch: TemplateChild::default(),
+                disable_hibernation_switch: TemplateChild::default(),
+                disable_sleep_timeout_switch: TemplateChild::default(),
+                disable_bing_search_switch: TemplateChild::default(),
+                disable_vbs_switch: TemplateChild::default(),
+                disable_swap_file_switch: TemplateChild::default(),
+                enable_old_bootloader_switch: TemplateChild::default(),
+                additional_boot_options_switch: TemplateChild::default(),
+                set_chkdsk_timeout_switch: TemplateChild::default(),
+                apply_compactos_switch: TemplateChild::default(),
+                disable_bitlocker_switch: TemplateChild::default(),
             }
         }
     }
