@@ -462,7 +462,64 @@
                     <property name="name">context_menu</property>
                     <property name="title">Контекстное меню</property>
                     <property name="child">
-                      <object class="GtkLabel"><property name="label">Настройка контекстного меню</property></object>
+                      <object class="GtkScrolledWindow">
+                        <property name="child">
+                          <object class="GtkBox">
+                            <property name="orientation">vertical</property>
+                            <property name="margin-top">12</property>
+                            <property name="margin-bottom">12</property>
+                            <property name="margin-start">12</property>
+                            <property name="margin-end">12</property>
+                            <property name="spacing">6</property>
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="label" translatable="yes">Context Menu</property>
+                                <property name="xalign">0</property>
+                                <attributes><attribute name="weight" value="bold"/><attribute name="scale" value="2.0"/></attributes>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><property name="margin-top">12</property><child><object class="GtkLabel"><property name="label">Enable Old Context Menu</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="enable_old_context_menu_switch"/></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Remove Context Menu Delay</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="remove_context_menu_delay_switch"/></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Scan with Microsoft Defender</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="scan_with_defender_switch"/></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Open in Terminal</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="open_in_terminal_switch"/></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Add to Favorites</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="add_to_favorites_switch"/></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Share</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="share_context_menu_switch"/></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Restore previous versions</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="restore_previous_versions_switch"/></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Send to</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="send_to_context_menu_switch"/></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Copy as path</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="copy_as_path_switch"/></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Pin to Start menu</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="pin_to_start_switch"/></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Pin to Taskbar</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="pin_to_taskbar_switch"/></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">Open in new tab</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="open_in_new_tab_switch"/></child></object>
+                            </child>
+                            <child>
+                              <object class="GtkBox"><property name="spacing">12</property><child><object class="GtkLabel"><property name="label">NVIDIA Control Panel</property><property name="hexpand">true</property><property name="xalign">0</property></object></child><child><object class="GtkSwitch" id="nvidia_control_panel_switch"/></child></object>
+                            </child>
+                          </object>
+                        </property>
+                      </object>
                     </property>
                   </object>
                 </child>

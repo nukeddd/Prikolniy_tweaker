@@ -152,6 +152,32 @@ use super::*;
         pub disable_boot_logo_switch: TemplateChild<gtk::Switch>,
         #[template_child]
         pub disable_boot_animation_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub enable_old_context_menu_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub remove_context_menu_delay_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub scan_with_defender_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub open_in_terminal_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub add_to_favorites_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub share_context_menu_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub restore_previous_versions_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub send_to_context_menu_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub copy_as_path_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub pin_to_start_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub pin_to_taskbar_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub open_in_new_tab_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub nvidia_control_panel_switch: TemplateChild<gtk::Switch>,
     }
 
     impl Default for TweakerWindow {
@@ -225,6 +251,19 @@ use super::*;
                 verbose_switch: TemplateChild::default(),
                 disable_boot_logo_switch: TemplateChild::default(),
                 disable_boot_animation_switch: TemplateChild::default(),
+                enable_old_context_menu_switch: TemplateChild::default(),
+                remove_context_menu_delay_switch: TemplateChild::default(),
+                scan_with_defender_switch: TemplateChild::default(),
+                open_in_terminal_switch: TemplateChild::default(),
+                add_to_favorites_switch: TemplateChild::default(),
+                share_context_menu_switch: TemplateChild::default(),
+                restore_previous_versions_switch: TemplateChild::default(),
+                send_to_context_menu_switch: TemplateChild::default(),
+                copy_as_path_switch: TemplateChild::default(),
+                pin_to_start_switch: TemplateChild::default(),
+                pin_to_taskbar_switch: TemplateChild::default(),
+                open_in_new_tab_switch: TemplateChild::default(),
+                nvidia_control_panel_switch: TemplateChild::default(),
             }
         }
     }
@@ -455,6 +494,110 @@ use super::*;
             let disable_boot_animation_window_weak = window.downgrade();
             self.disable_boot_animation_switch.connect_state_set(move |_, _| {
                 if let Some(window) = disable_boot_animation_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let enable_old_context_menu_window_weak = window.downgrade();
+            self.enable_old_context_menu_switch.connect_state_set(move |_, _| {
+                if let Some(window) = enable_old_context_menu_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let remove_context_menu_delay_window_weak = window.downgrade();
+            self.remove_context_menu_delay_switch.connect_state_set(move |_, _| {
+                if let Some(window) = remove_context_menu_delay_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let scan_with_defender_window_weak = window.downgrade();
+            self.scan_with_defender_switch.connect_state_set(move |_, _| {
+                if let Some(window) = scan_with_defender_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let open_in_terminal_window_weak = window.downgrade();
+            self.open_in_terminal_switch.connect_state_set(move |_, _| {
+                if let Some(window) = open_in_terminal_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let add_to_favorites_window_weak = window.downgrade();
+            self.add_to_favorites_switch.connect_state_set(move |_, _| {
+                if let Some(window) = add_to_favorites_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let share_context_menu_window_weak = window.downgrade();
+            self.share_context_menu_switch.connect_state_set(move |_, _| {
+                if let Some(window) = share_context_menu_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let restore_previous_versions_window_weak = window.downgrade();
+            self.restore_previous_versions_switch.connect_state_set(move |_, _| {
+                if let Some(window) = restore_previous_versions_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let send_to_context_menu_window_weak = window.downgrade();
+            self.send_to_context_menu_switch.connect_state_set(move |_, _| {
+                if let Some(window) = send_to_context_menu_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let copy_as_path_window_weak = window.downgrade();
+            self.copy_as_path_switch.connect_state_set(move |_, _| {
+                if let Some(window) = copy_as_path_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let pin_to_start_window_weak = window.downgrade();
+            self.pin_to_start_switch.connect_state_set(move |_, _| {
+                if let Some(window) = pin_to_start_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let pin_to_taskbar_window_weak = window.downgrade();
+            self.pin_to_taskbar_switch.connect_state_set(move |_, _| {
+                if let Some(window) = pin_to_taskbar_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let open_in_new_tab_window_weak = window.downgrade();
+            self.open_in_new_tab_switch.connect_state_set(move |_, _| {
+                if let Some(window) = open_in_new_tab_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+                glib::Propagation::Stop
+            });
+
+            let nvidia_control_panel_window_weak = window.downgrade();
+            self.nvidia_control_panel_switch.connect_state_set(move |_, _| {
+                if let Some(window) = nvidia_control_panel_window_weak.upgrade() {
                     show_dialog(&window);
                 }
                 glib::Propagation::Stop
