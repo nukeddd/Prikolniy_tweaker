@@ -26,6 +26,8 @@ mod imp {
         #[template_child]
         pub max_button: TemplateChild<gtk::Button>,
         #[template_child]
+        pub maku_tweaker_button: TemplateChild<gtk::Button>,
+        #[template_child]
         pub useless_buttons_box: TemplateChild<gtk::Box>,
         #[template_child]
         pub performance_button: TemplateChild<gtk::Button>,
@@ -61,6 +63,7 @@ mod imp {
                 pacman_button: TemplateChild::default(),
                 yasha_button: TemplateChild::default(),
                 max_button: TemplateChild::default(),
+                maku_tweaker_button: TemplateChild::default(),
                 useless_buttons_box: TemplateChild::default(),
                 performance_button: TemplateChild::default(),
                 balance_button: TemplateChild::default(),
@@ -125,6 +128,13 @@ mod imp {
             let max_window_weak = window.downgrade();
             self.max_button.connect_clicked(move |_| {
                 if let Some(window) = max_window_weak.upgrade() {
+                    show_dialog(&window);
+                }
+            });
+
+            let maku_tweaker_window_weak = window.downgrade();
+            self.maku_tweaker_button.connect_clicked(move |_| {
+                if let Some(window) = maku_tweaker_window_weak.upgrade() {
                     show_dialog(&window);
                 }
             });
@@ -220,7 +230,7 @@ mod imp {
             });
 
             for i in 1..=50 {
-                let button = gtk::Button::with_label(&format!("Кнопка что то делает {}", i));
+                let button = gtk::Button::with_label(&format!("Useless Button {}", i));
                 button.set_margin_top(6);
                 button.set_margin_start(12);
                 button.set_margin_end(12);
@@ -242,20 +252,11 @@ mod imp {
 
             let cpu_info = format!("CPU: {} ({} cores)", sys.global_cpu_info().brand(), sys.cpus().len());
 
-            let gpu_info_str = sys.components().iter()
-                .filter(|c| {
-                    let label = c.label().to_lowercase();
-                    label.contains("gpu") || label.contains("vga") || label.contains("nvidia") || label.contains("amd") || label.contains("radeon") || label.contains("geforce")
-                })
-                .map(|c| format!("  - {}: {:.1}°C", c.label(), c.temperature()))
-                .collect::<Vec<_>>()
-                .join("\n");
 
-            let final_gpu_info = if gpu_info_str.is_empty() {
-                "GPU: Not found".to_string()
-            } else {
-                format!("GPU(s):\n{}", gpu_info_str)
-            };
+
+            let final_gpu_info =
+                "GPU: Not found".to_string();
+
 
             let info = format!(
                 "System name: {}\nKernel version: {}\nOS version: {}\n\n{}\n\n{}\n\nTotal memory: {} GB\nUsed memory: {} MB",

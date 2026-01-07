@@ -55,6 +55,14 @@
                       <object class="GtkButton" id="max_button">
                         <property name="label" translatable="yes">Заблокировать Макса</property>
                         <property name="margin-top">6</property>
+                        <property name="margin-start">12</property>
+                        <property name="margin-end">12</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="maku_tweaker_button">
+                        <property name="label" translatable="yes">заблокировать маку твикер</property>
+                        <property name="margin-top">6</property>
                         <property name="margin-bottom">12</property>
                         <property name="margin-start">12</property>
                         <property name="margin-end">12</property>
