@@ -54,6 +54,20 @@ use super::*;
         pub rkn_telemetry_switch: TemplateChild<gtk::Switch>,
         #[template_child]
         pub fortuna_telemetry_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub show_hidden_files_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub show_extensions_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub open_this_pc_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub hide_drive_letters_switch: TemplateChild<gtk::Switch>,
+        #[template_child]
+        pub select_drive_letters_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub show_all_drive_letters_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub fix_duplicate_drives_button: TemplateChild<gtk::Button>,
     }
 
     impl Default for TweakerWindow {
@@ -78,6 +92,13 @@ use super::*;
                 bubunta_telemetry_switch: TemplateChild::default(),
                 rkn_telemetry_switch: TemplateChild::default(),
                 fortuna_telemetry_switch: TemplateChild::default(),
+                show_hidden_files_switch: TemplateChild::default(),
+                show_extensions_switch: TemplateChild::default(),
+                open_this_pc_switch: TemplateChild::default(),
+                hide_drive_letters_switch: TemplateChild::default(),
+                select_drive_letters_button: TemplateChild::default(),
+                show_all_drive_letters_button: TemplateChild::default(),
+                fix_duplicate_drives_button: TemplateChild::default(),
             }
         }
     }
